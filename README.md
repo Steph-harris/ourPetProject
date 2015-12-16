@@ -9,9 +9,9 @@ Html5, CSS3, jQuery, Javascript
 
 ## Deployed Link
 
- *API's Used
- *API one - Google Maps
- *API two - Petfinder.com
- *API three - Wikipedia
+ ## API's Used
+ - API one - Google Maps
+ - API two - Petfinder.com
+ - API three - Wikipedia
 
 ## Trello Link
