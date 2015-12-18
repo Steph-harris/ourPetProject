@@ -6,21 +6,45 @@
  	 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/css/materialize.min.css">
 </head>
 <body>
-	<nav>
-    <div class="nav-wrapper">
-      <a href="#" class="brand-logo">Logo</a>
-      <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <li><a href="sass.html">Sass</a></li>
-        <li><a href="badges.html">Components</a></li>
-        <li><a href="collapsible.html">JavaScript</a></li>
-      </ul>
-    </div>
-  </nav>
-  <div class="container">
-        <!-- Page Content goes here -->
+
+
+	<ul id="dropdown1" class="dropdown-content">
+  <li><a href="#!">Adoption Process</a></li>
+  <li><a href="#!">Adoption Centers</a></li>
+  <li class="divider"></li>
+  <li><a href="#!">Adoption Information</a></li>
+</ul>
+<ul id="dropdown2" class="dropdown-content">
+<li><a href="#">Dog Breeding</a></li>
+<li><a href="#">Gromming</a></li>
+<li><a href="#">Dog Breeding</a></li>
+<li><a href="#">Training</a></li>
+</ul>
+<ul id="dropdown3" class="dropdown-content">
+<li> <a href="#">Start a Rescue Center</a></li>
+<li> <a href="#">Volunteers</a></li>
+<li><a href="#">FosterCare</a></li>
+<li><a href="#"> Find Vertinary Doctors</a></li>
+<li> <a href="#"> Prevention of Cruelty</a></li>
+</ul>
+<nav>
+  <div class="nav-wrapper">
+    <a href="#!" class="brand-logo">Logo</a>
+    <ul class="right hide-on-med-and-down">
+       <li><a href="#">PetScearch</a></li>
+      <!-- Dropdown Trigger -->
+      <li><a class="dropdown-button" href="#!" data-activates="dropdown1">Adoption<i class="material-icons right"></i></a></li>
+      <li><a class="dropdown-button" href="#!" data-activates="dropdown2">Petcare<i class="material-icons right"></i></a></li>
+      <!-- Dropdown Trigger -->
+      <li><a class="dropdown-button" href="#!" data-activates="dropdown3">PetShelters<i class="material-icons right"></i></a></li>
+
+    </ul>
   </div>
+</nav>
+        
+        
  	<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
-	<script type="text/javascript" src="<!-- Compiled and minified JavaScript -->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js"></script>
+	<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDzOSkPllDVkUdq9X5M_UzWbWyMThrICsA&libraries=places"></script>
 </body>
 </html>
