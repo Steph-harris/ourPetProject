@@ -1,5 +1,4 @@
 $(document).ready(function() {
-
 	$(document).on("click", ".btn waves-effect waves-light", function() {
 		$.ajax({
 			url: 'https://maps.googleapis.com/maps/api/place/textsearch/json?parameters',
