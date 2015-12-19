@@ -15,7 +15,7 @@ $(document).ready(function(){
     //   $wikiDOM = $("<p>"+wikiHTML+"</p>");
     //   $(".infoBox").append($wikiDOM);
 
-    $.getJSON('http://en.wikipedia.org/w/api.php?action=parse&page=' + breedInfo +'&prop=text&format=json&callback=?', function(json) { 
+    $.getJSON('https://en.wikipedia.org/w/api.php?action=parse&page=' + breedInfo +'&prop=text&format=json&callback=?', function(json) { 
       $("#wikiInfo").html(json.parse.text["*"]); 
       $("#wikiInfo").find("a:not(.references a)").attr("href", function(){ return "http://www.wikipedia.org" + $(this).attr("href");}); 
       $("#wikiInfo").find("a").attr("target", "_blank"); 
