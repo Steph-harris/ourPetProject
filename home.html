@@ -3,10 +3,9 @@
 <head>
   <title>Our Pet Project</title>
   <!-- Compiled and minified CSS -->
- 	 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/css/materialize.min.css">
+ 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/css/materialize.min.css">
 </head>
 <body>
-
 
 	<ul id="dropdown1" class="dropdown-content">
   <li><a href="#!">Adoption Process</a></li>
@@ -51,11 +50,55 @@
     </form>
   </div>    
         
- 	<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js">
-  </script>
-      <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDlp0n1fERhVVw74ApJGVO8KoVH4FBUF1Y&signed_in=true&libraries=places&callback=initMap" async defer></script>
+  <div class="container">
+  <!-- Page Content goes here -->
+    <div class="row">
+      <div class="input-field col s4">
+        <input id="breedCheck" type="text" class="validate">
+        <label for="breedCheck">Breed Name</label>
+        <button class="btn breed col s6 waves-effect waves-light" type="submit" name="action">check breed<i class="material-icons right"></i></button>
+      </div>
+      <div id="wikiInfo">&nbsp;</div>
+      <div class="infoBox"></div>
+    </div>     
+  </div>
+  <div class="slider">
+    <ul class="slides">
+      <li>
+        <img src="http://lorempixel.com/580/250/nature/1"> <!-- random image -->
+        <div class="caption center-align">
+          <h3>This is our big Tagline!</h3>
+          <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
+        </div>
+      </li>
+      <li>
+        <img src="http://lorempixel.com/580/250/nature/2"> <!-- random image -->
+        <div class="caption left-align">
+          <h3>Left Aligned Caption</h3>
+          <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
+        </div>
+      </li>
+      <li>
+        <img src="http://lorempixel.com/580/250/nature/3"> <!-- random image -->
+        <div class="caption right-align">
+          <h3>Right Aligned Caption</h3>
+          <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
+        </div>
+      </li>
+      <li>
+        <img src="http://lorempixel.com/580/250/nature/4"> <!-- random image -->
+        <div class="caption center-align">
+          <h3>This is our big Tagline!</h3>
+          <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
+        </div>
+      </li>
+    </ul>
+  </div>
+      
 
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js"></script>
-	
+
+ 	<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js"></script>
+  <script type="text/javascript" src="scripts/wikiCall.js"></script>
 </body>
 </html>
