@@ -12,7 +12,7 @@ $(document).ready(function(){
     type: "GET",
     url: flickrApiUrl + $.param(flickrApiParams),
     success: function(){
-      alert("yep");
+      //alert("yep");
     }
   });
   //$.ajax();
