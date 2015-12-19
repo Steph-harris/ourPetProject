@@ -11,8 +11,9 @@ $(document).ready(function(){
   $.ajax({
     type: "GET",
     url: flickrApiUrl + $.param(flickrApiParams),
-    success: flickrSuccess(){
-      alert("grabbed")
+    success: function(){
+      alert("yep");
     }
   });
+  //$.ajax();
 });
