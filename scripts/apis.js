@@ -1,18 +1,18 @@
 $(document).ready(function() {
-	$(document).on("click", ".btn waves-effect waves-light", function() {
+	$(document).on("click", ".btn waves-effect waves-light", function(){
 		$.ajax({
 			url: 'https://maps.googleapis.com/maps/api/place/textsearch/json?parameters',
 			type: 'default GET (Other values: POST)',
 			dataType: 'default: Intelligent Guess (Other values: xml, json, script, or html)',
 			data: {param1: 'value1'},
-		})
-		.done(function() {
+			})
+			.done(function() {
 			console.log("success");
-		})
-		.fail(function() {
+			})
+			.fail(function() {
 			console.log("error");
-		})
-		.always(function() {
+			})
+			.always(function() {
 			console.log("complete");
 		});
 	});
