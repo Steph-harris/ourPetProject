@@ -16,13 +16,18 @@ $(document).ready(function(){
       var flickrPetPics = response.photos.photo
       for(i=0; i<flickrPetPics.length; i++)
       {
-        console.log(flickrPetPics[i].id);
+        makeFlickrCarousel(flickrPetPics[i]);
       }
     }
   });
 
-  // var flickPicUrl = "https://farm" + photoInfo.farm + ".staticflickr.com/"
-  // flickPicUrl += photoInfo.server + "/" + photoInfo.id + "_" + photoInfo.secret
-  // flickPicUrl += "_m.jpg"
+  function makeFlickrCarousel(photoInfo){
+    var flickPicUrl = "https://farm" + photoInfo.farm + ".staticflickr.com/"
+    flickPicUrl += photoInfo.server + "/" + photoInfo.id + "_" + photoInfo.secret
+    flickPicUrl += "_m.jpg";
+
+    console.log(flickPicUrl);
+  }
+  
   $.ajax();
 });
