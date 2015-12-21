@@ -26,8 +26,8 @@ $(document).ready(function(){
     flickPicUrl += photoInfo.server + "/" + photoInfo.id + "_" + photoInfo.secret
     flickPicUrl += "_m.jpg";
 
-    console.log(flickPicUrl);
+    //Build carousel pieces
+    var newDiv = $("<div>").addClass("carousel-slider")
   }
-  
   $.ajax();
 });
