@@ -1,4 +1,7 @@
 $(document).ready(function(){
+  //initialize semantic dropdown
+  $('.ui.dropdown').dropdown();
+
   $("#breedCheck").focus(function(){
     var petFAPI = "https://api.petfinder.com/breed.list?"
     var petFAPIParam = {
@@ -13,7 +16,16 @@ $(document).ready(function(){
       success: function(response){
         var breeds = response.petfinder.breeds.breed;
         for(i=0; i<breeds.length; i++){
-          console.log(breeds[i]['$t'])
+          var lstItm = breeds[i]['$t'];
+          //add class item to each and append to .menu
+          function newList(lstItm){debugger;
+            var newDiv =("<div>").addClass("item")
+              .text(lstItm);
+            $(".menu").append(newDiv);
+
+            return newDiv;
+          }
+
         }
       }
     });
