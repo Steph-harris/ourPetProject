@@ -8,6 +8,8 @@ $(document).ready(function(){
     format: "json",
     nojsoncallback: 1,
   }
+
+  $('.carousel').carousel();
       
   $.ajax({
     type: "GET",
@@ -16,7 +18,8 @@ $(document).ready(function(){
       var flickrPetPics = response.photos.photo
       for(i=0; i<flickrPetPics.length; i++){
         var newSlide = makeFlickrCarousel(flickrPetPics[i]);
-               
+        
+        //debugger;       
         $('.carousel-item').first().addClass('active');
         $('#flickrPic').carousel();
         $("#flickrPic").append(newSlide);
@@ -38,3 +41,9 @@ $(document).ready(function(){
     return newItem;
   }
 });
+
+//Petfinder info: 
+//API Key
+// e8128b543b65df38c67f40a9935f53fb
+// API Secret
+// 6e90af750530db275a45e35bdcb4e317
