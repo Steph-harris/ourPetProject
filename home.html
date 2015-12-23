@@ -10,17 +10,46 @@
  	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.7/semantic.min.css">
 </head>
 <body>
-	<nav>
+  <ul id="dropdown1" class="dropdown-content">  
+    <li><a href="#!">Adoption Process</a></li>
+    <li><a href="#!">Adoption Centers</a></li>
+    <li class="divider"></li>
+    <li><a href="#!">Adoption Information</a></li>
+  </ul>
+  <ul id="dropdown2" class="dropdown-content">
+    <li><a href="#">Dog Breeding</a></li>
+    <li><a href="#">Grooming</a></li>
+    <li><a href="#">Dog Breeding</a></li>
+    <li><a href="#">Training</a></li>
+  </ul>
+  <ul id="dropdown3" class="dropdown-content">
+    <li> <a href="#">Start a Rescue Center</a></li>
+    <li> <a href="#">Volunteers</a></li>
+    <li><a href="#">FosterCare</a></li>
+    <li><a href="#">Find a Vet</a></li>
+    <li> <a href="#">Prevention of Cruelty</a></li>
+  </ul>
+  <nav>
     <div class="nav-wrapper">
-      <a href="#" class="brand-logo">Logo</a>
-      <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <li><a href="sass.html">Sass</a></li>
-        <li><a href="badges.html">Components</a></li>
-        <li><a href="collapsible.html">JavaScript</a></li>
+      <a href="#!" class="brand-logo">Logo</a>
+      <ul class="right hide-on-med-and-down">
+        <li><a href="#">Pet Search</a></li>     
+        <li><a class="dropdown-button" href="#!" data-activates="dropdown1">Adoption<i class="material-icons right">  </i></a></li>
+        <li><a class="dropdown-button" href="#!" data-activates="dropdown2">Care<i class="material-icons right">   </i></a></li>
+        <!-- Dropdown Trigger -->
+        <li><a class="dropdown-button" href="#!" data-activates="dropdown3">Shelters<i class="material-icons right"></i></a></li>
       </ul>
     </div>
   </nav>
+
   <div class="container">
+    <div class="row">
+      <div id="map">
+        <input id="pac-input" class="controls" type="text" placeholder="Search Location">
+        <button class="btn waves-effect waves-light">Search</button>
+      </div>
+    </div>
+
   <!-- Page Content goes here -->
     <div class="row">      
       <div class="ui floating dropdown labeled search icon button">
@@ -34,17 +63,57 @@
       </button>
 
       <div id="wikiInfo">&nbsp;</div>
+
       <div class="carousel initialized" id="flickrPic"></div>
       
       <div class="infoBox"></div>
     </div>     
-  </div>
+    
+    <div class="row">
+      <div class="slider">
+        <ul class="slides">
+          <li>
+            <img src="http://lorempixel.com/580/250/nature/1"> <!-- random image -->
+            <div class="caption center-align">
+              <h3>This is our big Tagline!</h3>
+              <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
+            </div>
+          </li>
+          <li>
+            <img src="http://lorempixel.com/580/250/nature/2"> <!-- random image -->
+            <div class="caption left-align">
+              <h3>Left Aligned Caption</h3>
+              <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
+            </div>
+          </li>
+          <li>
+            <img src="http://lorempixel.com/580/250/nature/3"> <!-- random image -->
+            <div class="caption right-align">
+              <h3>Right Aligned Caption</h3>
+              <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
+            </div>
+          </li>
+          <li>
+            <img src="http://lorempixel.com/580/250/nature/4"> <!-- random image -->
+            <div class="caption center-align">
+              <h3>This is our big Tagline!</h3>
+              <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>  
+  </div> 
+
  	<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.4/js/materialize.min.js"></script>
-	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.7/semantic.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.7/semantic.min.js"></script>
+  <!-- // <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.4/js/materialize.min.js"></script> -->
+	 
   <script type="text/javascript" src="scripts/wikiCall.js"></script>
   <script type="text/javascript" src="scripts/flickrPics.js"></script>
   <script type="text/javascript" src="scripts/petF.js"></script>
   <script type="text/javascript" src="scripts/petBreeds.js"></script>
+  <script type="text/javascript" src="scripts/apis.js"></script>
+  <script type="text/javascript" src="scripts/slider.js"></script>
 </body>
 </html>

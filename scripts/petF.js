@@ -1,7 +1,6 @@
 $(document).ready(function(){
   //initialize semantic dropdown
   $('.ui.dropdown').dropdown();
-  
   $('.ui.dropdown').on("click",function(){
     for(var i=0; i<window.pets.length; i++){
       var newDiv = $("<div>").addClass("item").text(window.pets[i]["$t"]);

@@ -10,7 +10,7 @@ $(document).ready(function(){
   }
 
   $('.carousel').carousel();
-      
+     
   $.ajax({
     type: "GET",
     url: flickrApiUrl + $.param(flickrApiParams),
