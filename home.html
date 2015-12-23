@@ -51,27 +51,32 @@
 
   <!-- Page Content goes here -->
     <div class="row">      
-      <div class="ui floating dropdown labeled search icon button">
-        <i class="search icon"></i>
-        <span id="breedCheck" class="text">Choose a Breed</span>
-        <div >   
+      <span id="breedCheck" class="text"></span>
+      <form>
+       <div class="infoBox">
+       <!-- Dropdown Trigger -->
+        <a class='dropdown-button btn animal' href='#' data-activates='animalDropdown'>Choose an Animal</a>
 
-        </div>
-      </div>    
-      <button class="btn breed col s6 waves-effect waves-light" type="submit" name="action">check breed<i class="material-icons right"></i>
-      </button>
+        <!-- Dropdown Structure -->
+        <ul id='animalDropdown' class='dropdown-content menu'>
+          <li>Dog</li>
+          <li>Cat</li>
+          <li>Rabbit</li>
+        </ul>
+       <!-- Dropdown Trigger -->
+        <a class='dropdown-button btn dropsy' href='#' data-activates='breedDropdown'>Choose a Breed</a>
+
+        <!-- Dropdown Structure -->
+        <ul id='breedDropdown' class='dropdown-content menu'>
+          <!--breed list populates here -->
+        </ul>
+       </div>
+      </form>
 
       <div id="wikiInfo">&nbsp;</div>
 
       <div class="carousel initialized" id="flickrPic"></div>
-      <form>
-       <div class="infoBox">
-       <button class="here">Here</button>
-        <select class="menu">
-           
-        </select>
-       </div>
-      </form>
+      
     </div>     
     
     <div class="row">
