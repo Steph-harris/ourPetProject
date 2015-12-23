@@ -7,6 +7,7 @@
   <title>Our Pet Project</title>
   <!-- Compiled and minified CSS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.4/css/materialize.min.css">
+  <link rel="stylesheet" type="text/css" href="css/color.css">
 </head>
 <body>
   <ul id="dropdown1" class="dropdown-content">  
@@ -54,22 +55,21 @@
       <span id="breedCheck" class="text"></span>
       <form>
        <div class="infoBox">
-       <!-- Dropdown Trigger -->
-        <a class='dropdown-button btn animal' href='#' data-activates='animalDropdown'>Choose an Animal</a>
+        <div class="col s3">
+          <select class="browser-default" id="animal">
+            <option value="" disabled="disabled" selected="selected">Choose an animal</option>
+            <option value="1">Dog</option>
+            <option value="2">Cat</option>
+            <option value="3">Rabbit</option>
+          </select>
+        </div>
 
-        <!-- Dropdown Structure -->
-        <ul id='animalDropdown' class='dropdown-content menu'>
-          <li>Dog</li>
-          <li>Cat</li>
-          <li>Rabbit</li>
-        </ul>
-       <!-- Dropdown Trigger -->
-        <a class='dropdown-button btn dropsy' href='#' data-activates='breedDropdown'>Choose a Breed</a>
-
-        <!-- Dropdown Structure -->
-        <ul id='breedDropdown' class='dropdown-content menu'>
-          <!--breed list populates here -->
-        </ul>
+        <div class="input-field col s3" id="clickMe">
+          <select class="menu btn browser-default">
+            <option value="" disabled="disabled" selected="selected">Choose a Breed</option>
+            <!--breed list populates here -->
+          </select>
+        </div>
        </div>
       </form>
 

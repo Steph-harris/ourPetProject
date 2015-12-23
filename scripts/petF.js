@@ -1,9 +1,21 @@
 $(document).ready(function(){
-  $('.dropsy').on("click",function(){
-    for(var i=0; i<window.pets.length; i++){
-      var newDiv = $("<li>").text(window.pets[i]["$t"]);
-      $(".menu").append(newDiv);
+  // $('select').material_select();
+
+  $('#clickMe').on("click",function(){debugger;
+    //4 different outcomes(one for blank, and 3 for the animal types)
+    //check .animal value
+    //alert($("select").val());
+    var animal = $("#animal option:selected").text()
+    if(animal === "Choose an animal"){
+      alert("please choose an animal first");
+      return;
     } 
+    else{
+      for(var i=0; i<window.pets.length; i++){
+        var newDiv = $("<option>").attr("value",[i+1]).text(window.pets[i]["$t"]);
+        $(".menu").append(newDiv);
+      } 
+    }  
   });
 
 
