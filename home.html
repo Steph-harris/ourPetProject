@@ -7,7 +7,6 @@
   <title>Our Pet Project</title>
   <!-- Compiled and minified CSS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.4/css/materialize.min.css">
- 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.7/semantic.min.css">
 </head>
 <body>
   <ul id="dropdown1" class="dropdown-content">  
@@ -55,7 +54,7 @@
       <div class="ui floating dropdown labeled search icon button">
         <i class="search icon"></i>
         <span id="breedCheck" class="text">Choose a Breed</span>
-        <div class="menu">   
+        <div >   
 
         </div>
       </div>    
@@ -65,8 +64,14 @@
       <div id="wikiInfo">&nbsp;</div>
 
       <div class="carousel initialized" id="flickrPic"></div>
-      
-      <div class="infoBox"></div>
+      <form>
+       <div class="infoBox">
+       <button class="here">Here</button>
+        <select class="menu">
+           
+        </select>
+       </div>
+      </form>
     </div>     
     
     <div class="row">
@@ -106,9 +111,7 @@
   </div> 
 
  	<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.7/semantic.min.js"></script>
-  <!-- // <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.4/js/materialize.min.js"></script> -->
-	 
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.4/js/materialize.min.js"></script> 
   <script type="text/javascript" src="scripts/wikiCall.js"></script>
   <script type="text/javascript" src="scripts/flickrPics.js"></script>
   <script type="text/javascript" src="scripts/petF.js"></script>

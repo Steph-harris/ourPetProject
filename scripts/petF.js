@@ -1,9 +1,9 @@
 $(document).ready(function(){
   //initialize semantic dropdown
   $('.ui.dropdown').dropdown();
-  $('.ui.dropdown').on("click",function(){
+  $('.here').on("click",function(){
     for(var i=0; i<window.pets.length; i++){
-      var newDiv = $("<div>").addClass("item").text(window.pets[i]["$t"]);
+      var newDiv = $("<option>").text(window.pets[i]["$t"]);
       $(".menu").append(newDiv);
     } 
   });
