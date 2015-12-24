@@ -1,4 +1,4 @@
-window. pets = [
+window.pets = [
   {"$t":"Affenpinscher"},{"$t":"Afghan Hound"},{"$t":"Airedale Terrier"},
   {"$t":"Akbash"},{"$t":"Akita"},{"$t":"Alaskan Malamute"},{"$t":"American Bulldog"},
   {"$t":"American Eskimo Dog"},{"$t":"American Hairless Terrier"},
