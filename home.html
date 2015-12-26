@@ -6,40 +6,65 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Our Pet Project</title>
   <!-- Compiled and minified CSS -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.4/css/materialize.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.6/flatly/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="css/color.css">
 </head>
 <body>
-  <ul id="dropdown1" class="dropdown-content">  
-    <li><a href="#!">Adoption Process</a></li>
-    <li><a href="#!">Adoption Centers</a></li>
-    <li class="divider"></li>
-    <li><a href="#!">Adoption Information</a></li>
-  </ul>
-  <ul id="dropdown2" class="dropdown-content">
-    <li><a href="#">Dog Breeding</a></li>
-    <li><a href="#">Grooming</a></li>
-    <li><a href="#">Dog Breeding</a></li>
-    <li><a href="#">Training</a></li>
-  </ul>
-  <ul id="dropdown3" class="dropdown-content">
-    <li> <a href="#">Start a Rescue Center</a></li>
-    <li> <a href="#">Volunteers</a></li>
-    <li><a href="#">FosterCare</a></li>
-    <li><a href="#">Find a Vet</a></li>
-    <li> <a href="#">Prevention of Cruelty</a></li>
-  </ul>
-  <nav>
-    <div class="nav-wrapper">
-      <a href="#!" class="brand-logo">Logo</a>
-      <ul class="right hide-on-med-and-down">
-        <li><a href="#">Pet Search</a></li>     
-        <li><a class="dropdown-button" href="#!" data-activates="dropdown1">Adoption<i class="material-icons right">  </i></a></li>
-        <li><a class="dropdown-button" href="#!" data-activates="dropdown2">Care<i class="material-icons right">   </i></a></li>
-        <!-- Dropdown Trigger -->
-        <li><a class="dropdown-button" href="#!" data-activates="dropdown3">Shelters<i class="material-icons right"></i></a></li>
-      </ul>
-    </div>
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">Brand</a>
+      </div>
+
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
+        </ul>
+        <form class="navbar-form navbar-right" role="search">
+          <div class="form-group">
+            <input type="text" class="form-control" placeholder="Search">
+          </div>
+          <button type="submit" class="btn btn-default">Submit</button>
+        </form>
+        <ul class="nav navbar-nav navbar-right">
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Adoption<span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a href="#">Process</a></li>
+              <li><a href="#">Centers</a></li>
+              <li><a href="#">Information</a></li>
+            </ul>
+          </li>
+        </ul><ul class="nav navbar-nav navbar-right">
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Care<span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a href="#">Breeding</a></li>
+              <li><a href="#">Grooming</a></li>
+              <li><a href="#">Training</a></li>
+            </ul>
+          </li>
+        </ul><ul class="nav navbar-nav navbar-right">
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Shelters<span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a href="#">Volunteer</a></li>
+              <li><a href="#">Foster Care</a></li>
+              <li><a href="#">Prevention of Cruelty</a></li>
+              <li><a href="#">Find a Vet</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
   </nav>
 
   <div class="container">
@@ -64,9 +89,9 @@
                   <span class="card-title">Search By Breed</span>
                   <p>Choose an animal type, then choose a breed</p>
                 </div>
-                <div class="card-action">
-                  <div class="col s6">
-                    <select class="browser-default" id="animal">
+                <div class="well">
+                  <div class="col-sm-6">
+                    <select id="animal">
                       <option value="" disabled="disabled" selected="selected">Choose an animal</option>
                       <option value="1">Dog</option>
                       <option value="2">Cat</option>
@@ -91,53 +116,42 @@
 
       <div id="wikiInfo">&nbsp;</div>
 
-      <div class="carousel initialized" id="flickrPic"></div>
+      <div class="carousel" id="flickrPic"></div>
+      <div id="carousel-flickr" class="carousel slide" data-ride="carousel">
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+          <li data-target="#carousel-flickr" data-slide-to="0" class="active"></li>
+          <li data-target="#carousel-flickr" data-slide-to="1"></li>
+          <li data-target="#carousel-flickr" data-slide-to="2"></li>
+          <li data-target="#carousel-flickr" data-slide-to="3"></li>
+          <li data-target="#carousel-flickr" data-slide-to="4"></li>
+        </ol>
+
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner flickrItem" role="listbox">
+          
+        </div>
+
+        <!-- Controls -->
+        <a class="left carousel-control" href="#carousel-flickr" role="button" data-slide="prev">
+          <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="right carousel-control" href="#carousel-flickr" role="button" data-slide="next">
+          <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+      </div>
       
     </div>     
-    
-    <div class="row">
-      <div class="slider">
-        <ul class="slides">
-          <li>
-            <img src="http://lorempixel.com/580/250/nature/1"> <!-- random image -->
-            <div class="caption center-align">
-              <h3>This is our big Tagline!</h3>
-              <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
-            </div>
-          </li>
-          <li>
-            <img src="http://lorempixel.com/580/250/nature/2"> <!-- random image -->
-            <div class="caption left-align">
-              <h3>Left Aligned Caption</h3>
-              <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
-            </div>
-          </li>
-          <li>
-            <img src="http://lorempixel.com/580/250/nature/3"> <!-- random image -->
-            <div class="caption right-align">
-              <h3>Right Aligned Caption</h3>
-              <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
-            </div>
-          </li>
-          <li>
-            <img src="http://lorempixel.com/580/250/nature/4"> <!-- random image -->
-            <div class="caption center-align">
-              <h3>This is our big Tagline!</h3>
-              <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
-            </div>
-          </li>
-        </ul>
-      </div>
-    </div>  
   </div> 
 
  	<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.4/js/materialize.min.js"></script> 
+  <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script> 
   <script type="text/javascript" src="scripts/wikiCall.js"></script>
   <script type="text/javascript" src="scripts/flickrPics.js"></script>
   <script type="text/javascript" src="scripts/petF.js"></script>
   <script type="text/javascript" src="scripts/petBreeds.js"></script>
   <script type="text/javascript" src="scripts/apis.js"></script>
-  <script type="text/javascript" src="scripts/slider.js"></script>
 </body>
 </html>

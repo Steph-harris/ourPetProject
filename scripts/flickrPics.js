@@ -20,9 +20,8 @@ $(document).ready(function(){
         var newSlide = makeFlickrCarousel(flickrPetPics[i]);
         
         //debugger;       
-        $('.carousel-item').first().addClass('active');
-        $('#flickrPic').carousel();
-        $("#flickrPic").append(newSlide);
+        $('.item').first().addClass('active');
+        $(".flickrItem").append(newSlide);
       }
     }
   });
@@ -33,7 +32,7 @@ $(document).ready(function(){
     flickPicUrl += "_q.jpg";
 
     //Build carousel pieces
-    var newItem = $("<a>").addClass("carousel-item")
+    var newItem = $("<a>").addClass("item")
     var flickrImg = $("<img>").attr("src", flickPicUrl)
 
     newItem.append(flickrImg)
