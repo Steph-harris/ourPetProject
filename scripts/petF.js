@@ -1,9 +1,11 @@
 $(document).ready(function(){
+  $("#noAnimal").hide();
+
   $('#clickMe').on("click",function(){debugger;
     //4 different outcomes(one for blank, and 3 for the animal types)
     var animal = $("#animal option:selected").text()
     if(animal === "Choose an animal"){
-      alert("please choose an animal first");
+      $("#noAnimal").show().fadeOut(3500);
       return;
     } 
     else if (animal === "Dog"){

@@ -8,8 +8,6 @@ $(document).ready(function(){
     format: "json",
     nojsoncallback: 1,
   }
-
-  $('.carousel').carousel();
      
   $.ajax({
     type: "GET",
