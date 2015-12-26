@@ -20,7 +20,7 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="#">Brand</a>
+        <a class="navbar-brand" href="#">Show Us a Pet</a>
       </div>
 
       <!-- Collect the nav links, forms, and other content for toggling -->
@@ -63,54 +63,66 @@
     </div><!-- /.container-fluid -->
   </nav>
 
-  <div class="container">
+  <div class="container-fluid">
   <!-- Page Content goes here -->
-    <div class="row">    
-
-      <div id="map">
-        <input id="pac-input" class="controls" type="text" placeholder="Search Location">
-        <button class="btn btn-default">Search</button>
-      </div>
-      <span  class="text"></span>
-      <form>
+    <div class="row">       
+      <form class="col-md-9">
         <div class="infoBox">
           
-          <div class="row">
+          <div class="row-fluid">
             <div class="col-sm-12 col-md-6">
-              <div class="card blue-grey darken-1">
-                <div class="card-content white-text">
-                  <span class="card-title">Search By Breed</span>
-                  <p>Choose an animal type, then choose a breed</p>
+              <div class="well well-lg">              
+                <h1>Search By Location</h1>
+                <p>Enter your Zip Code and choose an animal</p>
+                <div id="map">
+                  <input id="pac-input" class="controls" type="text" placeholder="Search Location">
+                  <button class="btn btn-default">Search</button>
                 </div>
-                <div class="well well-lg">
-                  <div class="col-sm-6">
-                    <select id="animal">
-                      <option value="" disabled="disabled" selected="selected">Choose an animal</option>
-                      <option value="1">Dog</option>
-                      <option value="2">Cat</option>
-                      <option value="3">Rabbit</option>
-                    </select>
-                  </div>
-                  <div class="col-sm-6" id="clickMe">
-                    <select class="menu btn browser-default" id="breedCheck">
-                      <option value="" disabled="disabled" selected="selected">Choose a Breed</option>
-                      <!--breed list populates here -->
-                    </select>
-                  </div>
-                  <div class="alert  alert-danger" id="noAnimal" role="alert">
-                    <a href="#" class="alert-link">Please Choose an Animal</a>
-                  </div>
-                  <button class="breed">Search</button>
+                <div class="col-sm-6">
+                  <select id="animal">
+                    <option value="" disabled="disabled" selected="selected">Choose an animal</option>
+                    <option value="1">Dog</option>
+                    <option value="2">Cat</option>
+                    <option value="3">Rabbit</option>
+                  </select>
                 </div>
+                <div class="alert  alert-danger" id="noZip" role="alert">
+                  <a href="#" class="alert-link">Please Enter a Valid Zip Code</a>
+                </div>
+                <button class="zip">Search</button>
+              </div>
+            </div>
+
+            <div class="col-sm-12 col-md-6">
+              <div class="well well-lg">              
+                <h1>Search By Breed</h1>
+                <p>Choose an animal type, then choose a breed</p>
+                
+                <div class="col-sm-6">
+                  <select id="animal2">
+                    <option value="" disabled="disabled" selected="selected">Choose an animal</option>
+                    <option value="dog">Dog</option>
+                    <option value="cat">Cat</option>
+                    <option value="rabbit">Rabbit</option>
+                  </select>
+                </div>
+                <div class="col-sm-6" id="">
+                  <select class="menu" id="clickMe">
+                    <option value="" disabled="disabled" selected="selected">Choose a Breed</option>
+                    <!--breed list populates here -->
+                  </select>
+                </div>
+                <div class="alert  alert-danger" id="noAnimal" role="alert">
+                  <a href="#" class="alert-link">Please Choose an Animal</a>
+                </div>
+                <button class="breed">Search</button>
               </div>
             </div>
           </div>         
         </div>
       </form>
 
-      <div id="wikiInfo">&nbsp;</div>
-
-      <div id="carousel-flickr" class="col-md-4 carousel slide" data-ride="carousel">
+      <div id="carousel-flickr" class="col-md-3 carousel slide" data-ride="carousel">
         <!-- Removed the Indicators -->
 
         <!-- Wrapper for slides -->
@@ -128,6 +140,8 @@
           <span class="sr-only">Next</span>
         </a>
       </div>   
+
+      <div id="wikiInfo">&nbsp;</div>
     </div>     
   </div> 
 
@@ -135,8 +149,7 @@
   <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script> 
   <script type="text/javascript" src="scripts/wikiCall.js"></script>
   <script type="text/javascript" src="scripts/flickrPics.js"></script>
-  <script type="text/javascript" src="scripts/petF.js"></script>
-  <script type="text/javascript" src="scripts/petBreeds.js"></script>
+  <script type="text/javascript" src="scripts/petBreed.js"></script>
   <script type="text/javascript" src="scripts/apis.js"></script>
 </body>
 </html>

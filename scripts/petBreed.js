@@ -1,0 +1,52 @@
+$(document).ready(function(){
+  $("#noAnimal").hide();
+  $("#noZip").hide();
+
+  //on animal2 selection populate the breed list
+  //animal alert needs 2 event listeners: one for search button, and one for breed button
+  $('#clickMe').on("click",function(){
+    $(".menu").empty();
+    
+    var animal = $("#animal2").val();
+  
+    if(animal === null){
+      $("#noAnimal").show().fadeOut(3500);
+      return;
+    } 
+    else {
+      breedChecker();
+    }  
+  });
+
+  function breedChecker(){   
+    var animal = $("#animal2").val();
+    var petFAPI = "https://api.petfinder.com/breed.list?"
+    var petFAPIParam = {
+      key: "311acd0ca6ee16428a93eb5dafe77634",
+      animal: animal,
+      format: "json"
+    }
+
+    $.ajax({     
+      type:"GET",
+      url: petFAPI + $.param(petFAPIParam),
+      success: function(response){
+        var breeds = response.petfinder.breeds.breed;
+        for(i=0; i<breeds.length; i++){
+          var lstItm = breeds[i]['$t'];
+          var newDiv = $("<option>").attr("value",[i+1]).text(lstItm);
+        $(".menu").append(newDiv);
+          //add class item to each and append to .menu
+          function newList(lstItm){;
+            var newDiv =("<div>").addClass("item")
+              .text(lstItm);
+            $(".menu").append(newDiv);       
+          }
+        }
+        return newDiv;
+      }
+    })
+  };
+});
+
+    
