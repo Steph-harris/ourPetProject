@@ -3,7 +3,7 @@ $(document).ready(function(){
   //(need to get breed data from specific pet petfinder object and set the wiki call as part of the success function)
   $(".breed").on("click", function(e) {
     e.preventDefault();
-    var breedInfo = $("#breedCheck option:selected").text()
+    var breedInfo = $("#clickMe").val()
     var wikipediaUrl = "https://crossorigin.me/https://en.wikipedia.org/w/api.php?action=opensearch&";
       wikipediaUrl += "search="+ breedInfo + "&format=json";
         
