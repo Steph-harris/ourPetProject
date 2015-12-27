@@ -7,6 +7,7 @@
   <title>Our Pet Project</title>
   <!-- Compiled and minified CSS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.6/flatly/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" media="screen" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.7.5/css/bootstrap-select.min.css">
   <link rel="stylesheet" type="text/css" href="css/color.css">
 </head>
 <body>
@@ -75,23 +76,23 @@
                 <h1>Search By Location</h1>
                 <p>Enter your Zip Code and choose an animal</p>
                 <div id="map">
-                  <input id="pac-input" class="controls" type="text" placeholder="Search Location">
-                  <button class="btn btn-default">Search</button>
+                  <input id="pac-input" class="controls" type="text" placeholder="Enter 5 digit Zip">
                 </div>
-                <div class="col-sm-6">
+
+                <div>
                   <select id="animal">
                     <option value="" disabled="disabled" selected="selected">Choose an animal(Optional)</option>
-                    <option value="1">Dog</option>
-                    <option value="2">Cat</option>
-                    <option value="3">Rabbit</option>
-                    <option value="4">Bird</option>
-                    <option value="5">Horse</option>
+                    <option value="dog">Dog</option>
+                    <option value="cat">Cat</option>
+                    <option value="rabbit">Rabbit</option>
+                    <option value="bird">Bird</option>
+                    <option value="horse">Horse</option>
                   </select>
+                  <button class="btn btn-primary zip">Search</button>
                 </div>
                 <div class="alert  alert-danger" id="noZip" role="alert">
                   <a href="#" class="alert-link">Please Enter a Valid Zip Code</a>
-                </div>
-                <button class="zip">Search</button>
+                </div>             
               </div>
             </div>
 
@@ -110,8 +111,8 @@
                     <option value="horse">Horse</option>
                   </select>
                 </div>
-                <div class="col-sm-6" id="">
-                  <select class="menu selectpicker" id="clickMe" data-live-search="true" title="Choose Breed">
+                <div>
+                  <select class="menu col-sm-6" id="clickMe" data-live-search="true" title="Choose Breed">
                     <!-- <option value="" disabled="disabled" selected="selected">Choose a Breed</option> -->
                     <!--breed list populates here -->
                   </select>
@@ -119,7 +120,7 @@
                 <div class="alert  alert-danger" id="noAnimal" role="alert">
                   <a href="#" class="alert-link">Please Choose an Animal</a>
                 </div>
-                <button class="breed">Search</button>
+                <button class="btn btn-primary breed">Search</button>
               </div>
             </div>
           </div>         
@@ -150,7 +151,8 @@
   </div> 
 
  	<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
-  <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script> 
+  <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.7.5/js/bootstrap-select.min.js"></script> 
   <script type="text/javascript" src="scripts/wikiCall.js"></script>
   <script type="text/javascript" src="scripts/flickrPics.js"></script>
   <script type="text/javascript" src="scripts/petBreed.js"></script>

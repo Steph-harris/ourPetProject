@@ -2,6 +2,13 @@ $(document).ready(function(){
   $("#noAnimal").hide();
   $("#noZip").hide();
 
+  $('.selectpicker').selectpicker();
+
+  $('.selectpicker').selectpicker({
+      style: 'btn-info',
+      size: 4
+  });
+
   $("#clickMe").on("click", function(){
     var animal = $("#animal2").val();
 
