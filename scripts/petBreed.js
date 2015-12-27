@@ -29,7 +29,7 @@ $(document).ready(function(){
 
   function breedChecker(){   
     var animal = $("#animal2").val();
-    var petFAPI = "https://api.petfinder.com/breed.list?"
+    var petFAPI = "https://crossorigin.me/https://api.petfinder.com/breed.list?"
     var petFAPIParam = {
       key: "311acd0ca6ee16428a93eb5dafe77634",
       animal: animal,
