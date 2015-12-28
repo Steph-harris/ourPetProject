@@ -3,11 +3,13 @@
   padding-right: 10px;
 }
 #carousel-flickr{
-  max-width: 240px;
   padding: 0;
 }
-
+.well>.col-sm-6{
+  padding-left: 0;
+}
 #searchBoxes{
   padding-left: 0;
   padding-right: 0;
 }
+
