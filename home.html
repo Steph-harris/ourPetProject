@@ -69,63 +69,58 @@
   <!-- Page Content goes here -->
     <div class="row">       
       <form class="col-md-8" id="searchBoxes">
-        <div class="infoBox">
-          
-          <div class="row-fluid">
-            <div class="col-sm-12 col-md-6">
-              <div class="well well-lg">              
-                <h1>Search By Location</h1>
-                <p>Enter your Zip Code and choose an animal</p>
-                <div id="map">
-                  <input id="pac-input" class="controls" type="text" placeholder="Enter 5 digit Zip">
-                </div>
-
-                <div>
-                  <select id="animal">
-                    <option value="" disabled="disabled" selected="selected">Choose an animal(Optional)</option>
-                    <option value="dog">Dog</option>
-                    <option value="cat">Cat</option>
-                    <option value="rabbit">Rabbit</option>
-                    <option value="bird">Bird</option>
-                    <option value="horse">Horse</option>
-                  </select>
-                  <button class="btn btn-primary zip">Search</button>
-                </div>
-                <div class="alert  alert-danger" id="noZip" role="alert">
-                  <a href="#" class="alert-link">Please Enter a Valid Zip Code</a>
-                </div>             
-              </div>
+        <div class="col-sm-12 col-md-6">
+          <div class="well well-lg">              
+            <h1>Search By Location</h1>
+            <p>Enter your Zip Code and choose an animal</p>
+            <div id="map">
+              <input id="pac-input" class="controls" type="text" placeholder="Enter 5 digit Zip">
             </div>
 
-            <div class="col-sm-12 col-md-6">
-              <div class="well well-lg">              
-                <h1>Search By Breed</h1>
-                <p>Choose an animal type, then choose a breed</p>
-                
-                <div class="col-sm-6">
-                  <select id="animal2">
-                    <option value="" disabled="disabled" selected="selected">Choose an animal</option>
-                    <option value="dog">Dog</option>
-                    <option value="cat">Cat</option>
-                    <option value="rabbit">Rabbit</option>
-                    <option value="bird">Bird</option>
-                    <option value="horse">Horse</option>
-                  </select>
-                </div>
-                <div class="col-sm-6">
-                  <select class="menu col-sm-12" id="clickMe" data-live-search="true" title="Choose Breed">
-                    <!-- <option value="" disabled="disabled" selected="selected">Choose a Breed</option> -->
-                    <!--breed list populates here -->
-                  </select>
-                </div>
-                <div class="alert alert-danger" id="noAnimal" role="alert">
-                  <a href="#" class="alert-link">Please Choose an Animal</a>
-                </div>
-                <button class="btn btn-primary breed">Search</button>
-              </div>
+            <div>
+              <select id="animal">
+                <option value="" disabled="disabled" selected="selected">Choose an animal(Optional)</option>
+                <option value="dog">Dog</option>
+                <option value="cat">Cat</option>
+                <option value="rabbit">Rabbit</option>
+                <option value="bird">Bird</option>
+                <option value="horse">Horse</option>
+              </select>
+              <button class="btn btn-primary zip">Search</button>
             </div>
-          </div>         
+            <div class="alert  alert-danger" id="noZip" role="alert">
+              <a href="#" class="alert-link">Please Enter a Valid Zip Code</a>
+            </div>             
+          </div>
         </div>
+
+        <div class="col-sm-12 col-md-6">
+          <div class="well well-lg">              
+            <h1>Search By Breed</h1>
+            <p>Choose an animal type, then choose a breed</p>
+            
+            <div class="col-sm-6">
+              <select id="animal2">
+                <option value="" disabled="disabled" selected="selected">Choose an animal</option>
+                <option value="dog">Dog</option>
+                <option value="cat">Cat</option>
+                <option value="rabbit">Rabbit</option>
+                <option value="bird">Bird</option>
+                <option value="horse">Horse</option>
+              </select>
+            </div>
+            <div class="col-sm-6">
+              <select class="menu col-sm-12" id="clickMe" data-live-search="true" title="Choose Breed">
+                <!-- <option value="" disabled="disabled" selected="selected">Choose a Breed</option> -->
+                <!--breed list populates here -->
+              </select>
+            </div>
+            <div class="alert alert-danger" id="noAnimal" role="alert">
+              <a href="#" class="alert-link">Please Choose an Animal</a>
+            </div>
+            <button class="btn btn-primary breed">Search</button>
+          </div>
+        </div>               
       </form>
 
       <div id="carousel-flickr" class="col-xs-8 col-xs-offset-2 col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-0 carousel slide" data-ride="carousel">
