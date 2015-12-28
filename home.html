@@ -7,6 +7,7 @@
   <title>Our Pet Project</title>
   <!-- Compiled and minified CSS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.6/flatly/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
   <link rel="stylesheet" type="text/css" media="screen" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.7.5/css/bootstrap-select.min.css">
   <link rel="stylesheet" type="text/css" href="css/color.css">
 </head>
@@ -21,7 +22,7 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="#">Show Us a Pet</a>
+        <a class="navbar-brand" href="#">Show Us a Pet<i class=" fa fa-paw fa-1x"></i><i class="fa fa-paw fa-2x"></i><i class="fa fa-paw fa-1x"></i></a>
       </div>
 
       <!-- Collect the nav links, forms, and other content for toggling -->
@@ -33,7 +34,7 @@
           <button type="submit" class="btn btn-default">Submit</button>
         </form>
         <ul class="nav navbar-nav navbar-right">
-          <li class="active"><a href="#">Pet Search<span class="sr-only">(current)</span></a></li>
+          <li class="active"><a href="#searchBoxes">Pet Search<span class="sr-only">(current)</span></a></li>
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Adoption<span class="caret"></span></a>
             <ul class="dropdown-menu">
@@ -45,6 +46,7 @@
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Care<span class="caret"></span></a>
             <ul class="dropdown-menu">
+              <li><a href="#">Find a Vet</a></li>
               <li><a href="#">Breeding</a></li>
               <li><a href="#">Grooming</a></li>
               <li><a href="#">Training</a></li>
@@ -56,7 +58,6 @@
               <li><a href="#">Volunteer</a></li>
               <li><a href="#">Foster Care</a></li>
               <li><a href="#">Prevention of Cruelty</a></li>
-              <li><a href="#">Find a Vet</a></li>
             </ul>
           </li>
         </ul>
@@ -67,7 +68,7 @@
   <div class="container-fluid">
   <!-- Page Content goes here -->
     <div class="row">       
-      <form class="col-md-9">
+      <form class="col-md-9" id="searchBoxes">
         <div class="infoBox">
           
           <div class="row-fluid">
@@ -117,7 +118,7 @@
                     <!--breed list populates here -->
                   </select>
                 </div>
-                <div class="alert  alert-danger" id="noAnimal" role="alert">
+                <div class="alert alert-danger" id="noAnimal" role="alert">
                   <a href="#" class="alert-link">Please Choose an Animal</a>
                 </div>
                 <button class="btn btn-primary breed">Search</button>
@@ -127,7 +128,7 @@
         </div>
       </form>
 
-      <div id="carousel-flickr" class="col-md-3 carousel slide" data-ride="carousel">
+      <div id="carousel-flickr" class="col-xs-6 col-xs-offset-3 col-sm-4 col-sm-offset-4 col-md-4 col-md-offset-0 carousel slide" data-ride="carousel">
         <!-- Removed the Indicators -->
 
         <!-- Wrapper for slides -->
