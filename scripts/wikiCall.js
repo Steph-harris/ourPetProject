@@ -33,6 +33,9 @@ $(document).ready(function(){
         i.find('.mw-ext-cite-error').remove();
 
         $('#wikiInfo').html($(i).find('p'));
+        //If there isn't a direct matching Wiki response, show nothing
+        $('#wikiInfo:contains(refer to)').html("").find('p');
+        $('#wikiInfo:contains(Redirect)').html("").find('p');
       }
     });
   });
