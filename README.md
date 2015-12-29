@@ -7,10 +7,13 @@ We are making a petfinder that displays pets up for adoption close to the users 
 ## Technologies Used 
  - Html5
  - CSS3 
+ - Bootstrap
  - jQuery 
  - Javascript
+ - AJAX
 
 ## Deployed Link
+ - https://showusapet.herokuapp.com/
 
 ## API's Used
  - API one - Google Maps
@@ -18,3 +21,4 @@ We are making a petfinder that displays pets up for adoption close to the users 
  - API three - Wikipedia
 
 ## Trello Link
+ - https://trello.com/b/Y1SLNkrD/project-outline

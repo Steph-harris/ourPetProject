@@ -1,0 +1,15 @@
+.container-fluid {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+#carousel-flickr{
+  padding: 0;
+}
+.well>.col-sm-6{
+  padding-left: 0;
+}
+#searchBoxes{
+  padding-left: 0;
+  padding-right: 0;
+}
+
