@@ -27,7 +27,7 @@ $(document).ready(function(){
   function makeFlickrCarousel(photoInfo){
     var flickPicUrl = "https://farm" + photoInfo.farm + ".staticflickr.com/"
     flickPicUrl += photoInfo.server + "/" + photoInfo.id + "_" + photoInfo.secret
-    flickPicUrl += "_z.jpg";
+    flickPicUrl += ".jpg";
 
     //Build carousel pieces
     var newItem = $("<a>").addClass("item")
