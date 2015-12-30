@@ -2,7 +2,7 @@ $(document).ready(function(){
   var flickrApiUrl = "https://crossorigin.me/https://api.flickr.com/services/rest/?";
   var flickrApiParams = {
     api_key: "53f3ad616d891ed27a09c64d67ff8ec5",
-    text: $("breedCheck").text() || "pets",
+    text: $("selectBreed").text() || "pets",
     per_page: 25,
     method: "flickr.photos.search",
     format: "json",

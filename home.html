@@ -110,14 +110,14 @@
               </select>
             </div>
             
-            <select class="menu col-sm-6" id="clickMe" data-live-search="true" title="Choose Breed">
+            <select class="menu col-sm-6" id="selectBreed" data-live-search="true" title="Choose Breed">
               <!--breed list populates here -->
             </select>
             
             <div class="alert alert-danger" id="noAnimal" role="alert">
               <a href="#" class="alert-link">Please Choose an Animal</a>
             </div>
-            <button class="btn btn-primary breed">Search</button>
+            <button class="btn btn-primary breedSearch">Search</button>
           </div>
         </div>               
       </form>
@@ -140,10 +140,15 @@
           <span class="sr-only">Next</span>
         </a>
       </div>   
+    </div>
 
+    <div class="row">
+      <div col-xs-12 id="breedResult">
+        
+      </div>
       <div id="wikiInfo">&nbsp;
         <p></p>
-      </div>
+      </div>   
     </div>     
   </div> 
 
