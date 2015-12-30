@@ -81,15 +81,22 @@ $(document).ready(function(){
       url: petFAPI + $.param(petFAPIParam),
       success: function(response){
         var newPetInfo = response.petfinder.pet
+        var newPetContact = response.petfinder.pet.contact
         var petOptions = response.petfinder.pet.options.option;
         var petPhoto = response.petfinder.pet.media.photos.photo;
+        debugger;
+
+        var yourPet = $("<h2>Meet " + newPetInfo.name["$t"] + ", a(n) " + newPetInfo.size["$t"]+" " + newPetInfo.age["$t"] +" "+ newPetInfo.sex["$t"] + " from " + newPetContact.city["$t"] +", "+newPetContact.state["$t"] + "</h2>");
+        var yourPetP = $("<p>").text(newPetInfo.description["$t"]);
+        console.log(yourPetP);
+        $("#breedResult").prepend(yourPet);
 
         for(i=0; i<petPhoto.length; i++){
-          debugger;
+          
           if(petPhoto[i]["@size"] === "pn"){            
             var newPetPic = $("<img>").attr("src", petPhoto[i]["$t"])
               .addClass("img-responsive");
-            var newPetPicDiv = $("<div>");
+            var newPetPicDiv = $("<div>").addClass("col-xs-6 col-md-4");
 
             newPetPicDiv.append(newPetPic);
 
@@ -101,14 +108,14 @@ $(document).ready(function(){
           var newP = $("<p>").text(petOptions[i]["$t"]);
           $("#breedResult").append(newP);
         }
-        // var age
+        // var age +
         // var sex
-        // var name
+        // var name +
         // var description
         // photos +
         // size
         // options +
-        // contact-city state zip email phone
+        // contact-city+ state+ zip email phone
       }
     })
   };
