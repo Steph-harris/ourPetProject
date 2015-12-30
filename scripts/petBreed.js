@@ -86,9 +86,10 @@ $(document).ready(function(){
         var petPhoto = response.petfinder.pet.media.photos.photo;
         debugger;
 
-        var yourPet = $("<h2>Meet " + newPetInfo.name["$t"] + ", a(n) " + newPetInfo.size["$t"]+" " + newPetInfo.age["$t"] +" "+ newPetInfo.sex["$t"] + " from " + newPetContact.city["$t"] +", "+newPetContact.state["$t"] + "</h2>");
-        var yourPetP = $("<p>").text(newPetInfo.description["$t"]);
-        console.log(yourPetP);
+        var yourPet = $("<h2>Meet " + newPetInfo.name["$t"] + ", a size " + newPetInfo.size["$t"]+" " + newPetInfo.age["$t"] +" "+ newPetInfo.sex["$t"] + " from " + newPetContact.city["$t"] +", "+newPetContact.state["$t"] + "</h2>");
+        var yourPetP = $("<p>").addClass("col-xs-12 col-md-4").text(newPetInfo.description["$t"]);
+        
+        $("#breedResult").prepend(yourPetP);
         $("#breedResult").prepend(yourPet);
 
         for(i=0; i<petPhoto.length; i++){
@@ -109,11 +110,11 @@ $(document).ready(function(){
           $("#breedResult").append(newP);
         }
         // var age +
-        // var sex
+        // var sex +
         // var name +
-        // var description
+        // var description +
         // photos +
-        // size
+        // size +
         // options +
         // contact-city+ state+ zip email phone
       }
