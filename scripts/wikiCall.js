@@ -1,8 +1,8 @@
 $(document).ready(function(){
-  //(gets breed data from specific pet petfinder object and sets the wiki call as part of the success function)
-  $(".breed").on("click", function(e) {
+  //(gets breed data from breed select box and sets the wiki call as part of the success function)
+  $(".breedSearch").on("click", function(e) {
     e.preventDefault();
-    var title = $("#clickMe").val()
+    var title = $("#selectBreed").val()
 
     $.ajax({
       url: "https://en.wikipedia.org/w/api.php",

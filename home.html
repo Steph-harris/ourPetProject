@@ -8,7 +8,7 @@
   <!-- Compiled and minified CSS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.6/flatly/bootstrap.min.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-  <link rel="stylesheet" type="text/css" media="screen" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.7.5/css/bootstrap-select.min.css">
+  <link rel="stylesheet" type="text/css" media="screen" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.9.3/css/bootstrap-select.min.css">
   <link rel="stylesheet" type="text/css" href="css/color.css">
 </head>
 <body>
@@ -88,7 +88,7 @@
               </select>
               <button class="btn btn-primary zip">Search</button>
             </div>
-            <div class="alert  alert-danger" id="noZip" role="alert">
+            <div class="alert alert-danger" id="noZip" role="alert">
               <a href="#" class="alert-link">Please Enter a Valid Zip Code</a>
             </div>             
           </div>
@@ -109,16 +109,15 @@
                 <option value="horse">Horse</option>
               </select>
             </div>
-            <div class="col-sm-6">
-              <select class="menu col-sm-12" id="clickMe" data-live-search="true" title="Choose Breed">
-                <!-- <option value="" disabled="disabled" selected="selected">Choose a Breed</option> -->
-                <!--breed list populates here -->
-              </select>
-            </div>
+            
+            <select class="menu col-sm-6" id="selectBreed" data-live-search="true" title="Choose Breed">
+              <!--breed list populates here -->
+            </select>
+            
             <div class="alert alert-danger" id="noAnimal" role="alert">
               <a href="#" class="alert-link">Please Choose an Animal</a>
             </div>
-            <button class="btn btn-primary breed">Search</button>
+            <button class="btn btn-primary breedSearch">Search</button>
           </div>
         </div>               
       </form>
@@ -141,16 +140,21 @@
           <span class="sr-only">Next</span>
         </a>
       </div>   
+    </div>
 
+    <div class="row">
+      <div col-xs-12 id="breedResult">
+        
+      </div>
       <div id="wikiInfo">&nbsp;
         <p></p>
-      </div>
+      </div>   
     </div>     
   </div> 
 
  	<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
   <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.7.5/js/bootstrap-select.min.js"></script> 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.9.3/js/bootstrap-select.min.js"></script> 
   <script type="text/javascript" src="scripts/wikiCall.js"></script>
   <script type="text/javascript" src="scripts/flickrPics.js"></script>
   <script type="text/javascript" src="scripts/petBreed.js"></script>
