@@ -85,7 +85,7 @@ $(document).ready(function(){
         var petOptions = response.petfinder.pet.options.option;
         var petPhoto = response.petfinder.pet.media.photos.photo;
         var yourPet = $("<h2>Meet " + newPetInfo.name["$t"] + ", a size " + newPetInfo.size["$t"]+" " + newPetInfo.age["$t"] +" "+ newPetInfo.sex["$t"] + " from " + newPetContact.city["$t"] +", "+newPetContact.state["$t"] + "</h2>");
-        var yourPetP = $("<p>").addClass("col-xs-12 col-md-4").text(newPetInfo.description["$t"]);
+        var yourPetP = $("<p>").addClass("col-xs-12 col-md-6").text(newPetInfo.description["$t"]);
         
         $("#breedResult").prepend(yourPetP);
         $("#breedResult").prepend(yourPet);
@@ -95,17 +95,19 @@ $(document).ready(function(){
           if(petPhoto[i]["@size"] === "pn"){            
             var newPetPic = $("<img>").attr("src", petPhoto[i]["$t"])
               .addClass("img-responsive");
-            var newPetPicDiv = $("<div>").addClass("col-xs-6 col-md-4");
+            var newPetPicDiv = $("<div>").addClass("col-xs-6 col-md-3");
 
             newPetPicDiv.append(newPetPic);
-
             $("#breedResult").append(newPetPicDiv);
           }
         }
 
         for(i=0; i<petOptions.length; i++){
-          var newP = $("<p>").text(petOptions[i]["$t"]);
-          $("#breedResult").append(newP);
+          var newPDiv = $("<div>").addClass("col-xs-6 col-md-2 well well-sm");
+          var newP = $("<h4>").text(petOptions[i]["$t"]);
+
+          newPDiv.append(newP);
+          $("#breedResult").append(newPDiv);
         }
         
         // contact-city+ state+ zip email phone

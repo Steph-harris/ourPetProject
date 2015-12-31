@@ -1,4 +1,4 @@
-$(document).ready(function(){
+$(document).ready(function(){ 
   //(gets breed data from breed select box and sets the wiki call as part of the success function)
   $(".breedSearch").on("click", function(e) {
     e.preventDefault();
@@ -32,10 +32,11 @@ $(document).ready(function(){
         //remove cite error
         i.find('.mw-ext-cite-error').remove();
 
-        $('#wikiInfo').html($(i).find('p'));
+        $('#wikiInfo').addClass("col-xs-12 col-md-6").html($(i).find('p'));
         //If there isn't a direct matching Wiki response, show nothing
         $('#wikiInfo:contains(refer to)').html("").find('p');
         $('#wikiInfo:contains(Redirect)').html("").find('p');
+
       }
     });
   });
