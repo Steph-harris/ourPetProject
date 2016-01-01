@@ -2,13 +2,6 @@ $(document).ready(function(){
   $("#noAnimal").hide();
   $("#noZip").hide();
 
-  $('.selectpicker').selectpicker();
-
-  $('.selectpicker').selectpicker({
-      style: 'btn-info',
-      size: 4
-  });
-
   $("#selectBreed").on("click", function(){
     var animal = $("#animal2").val();
 
@@ -25,6 +18,7 @@ $(document).ready(function(){
     $(".menu").empty();  
     
     breedChecker();   
+    $('#selectBreed').select2();
   });
 
   $(".breedSearch").on("click", function(e) {
