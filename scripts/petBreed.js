@@ -23,6 +23,8 @@ $(document).ready(function(){
 
   $(".breedSearch").on("click", function(e) {
     e.preventDefault();
+    debugger;
+    //$(".newPet").empty();
     searchByBreed();
   });
 
@@ -69,6 +71,7 @@ $(document).ready(function(){
     }
 
     $("#breedResult").empty();
+    $(".photoRow").empty();
 
     $.ajax({     
       type:"GET",
@@ -92,7 +95,7 @@ $(document).ready(function(){
             var newPetPicDiv = $("<div>").addClass("col-xs-6 col-md-3");
 
             newPetPicDiv.append(newPetPic);
-            $("#breedResult").append(newPetPicDiv);
+            $(".photoRow").append(newPetPicDiv);
           }
         }
 
