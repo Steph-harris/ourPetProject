@@ -23,8 +23,7 @@ $(document).ready(function(){
 
   $(".breedSearch").on("click", function(e) {
     e.preventDefault();
-    debugger;
-    //$(".newPet").empty();
+    
     searchByBreed();
   });
 
