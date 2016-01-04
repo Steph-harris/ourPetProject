@@ -82,9 +82,11 @@ $(document).ready(function(){
         var petPhoto = response.petfinder.pet.media.photos.photo;
         var yourPet = $("<h2>Meet " + newPetInfo.name["$t"] + ", a size " + newPetInfo.size["$t"]+" " + newPetInfo.age["$t"] +" "+ newPetInfo.sex["$t"] + " from " + newPetContact.city["$t"] +", "+newPetContact.state["$t"] + "</h2>");
         var yourPetP = $("<p>").addClass("col-xs-12 col-md-6").text(newPetInfo.description["$t"]);
-        
+        var yourPetContact = $("<h3>To adopt " + newPetInfo.name["$t"] + ", please call " + newPetContact.phone["$t"] +"</h3>").addClass("col-xs-12");
+
         $("#breedResult").prepend(yourPetP);
         $("#breedResult").prepend(yourPet);
+        $("#breedResult").append(yourPetContact);
 
         for(i=0; i<petPhoto.length; i++){
           
