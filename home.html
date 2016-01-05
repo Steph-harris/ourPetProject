@@ -12,7 +12,7 @@
   <link rel="stylesheet" type="text/css" href="css/color.css">
 </head>
 <body>
-  <nav class="navbar navbar-default">
+  <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container-fluid">
       <!-- Brand and toggle get grouped for better mobile display -->
       <div class="navbar-header">
@@ -36,16 +36,8 @@
         <ul class="nav navbar-nav navbar-right">
           <li class="active"><a href="#searchBoxes">Pet Search<span class="sr-only">(current)</span></a></li>
           <li><a href="#whyAdopt">Why Adopt?</a></li>
-          <li><a href="#about">About Us</a></li>         
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Care<span class="caret"></span></a>
-            <ul class="dropdown-menu">
-              <li><a href="#">Find a Vet</a></li>
-              <li><a href="#">Breeding</a></li>
-              <li><a href="#">Grooming</a></li>
-              <li><a href="#">Training</a></li>
-            </ul>
-          </li>
+          <li><a href="#care">Care</a></li> 
+          <li><a href="#about">About Us</a></li>                 
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Shelters<span class="caret"></span></a>
             <ul class="dropdown-menu">
@@ -62,8 +54,8 @@
   <div class="container-fluid">
   <!-- Page Content goes here -->
     <div class="row">       
-      <form class="col-md-8" id="searchBoxes">
-        <div class="col-sm-12 col-md-6">
+      <form id="searchBoxes">
+        <div class="col-xs-12 col-sm-6">
           <div class="well well-lg">              
             <h1>Search By Location</h1>
             <p>Enter your Zip Code and choose an animal</p>
@@ -88,7 +80,7 @@
           </div>
         </div>
 
-        <div class="col-sm-12 col-md-6">
+        <div class="col-xs-12 col-sm-6">
           <div class="well well-lg">              
             <h1>Search By Breed</h1>
             <p>Choose an animal type, then choose a breed</p>
@@ -115,29 +107,11 @@
           </div>
         </div>               
       </form>
-
-      <div id="carousel-flickr" class="col-xs-8 col-xs-offset-2 col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-0 carousel slide" data-ride="carousel">
-        <!-- Removed the Indicators -->
-
-        <!-- Wrapper for slides -->
-        <div class="carousel-inner flickrItem" role="listbox">
-          
-        </div>
-
-        <!-- Controls -->
-        <a class="left carousel-control" href="#carousel-flickr" role="button" data-slide="prev">
-          <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-          <span class="sr-only">Previous</span>
-        </a>
-        <a class="right carousel-control" href="#carousel-flickr" role="button" data-slide="next">
-          <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-          <span class="sr-only">Next</span>
-        </a>
-      </div>   
     </div>
 
     <div class="row">
       <div class="col-xs-4 col-md-4">
+        <h3>Pet Sizes</h3>
         <table>
           <tr><th>Size</th><th>Description</th></tr>
           <tr><td>S</td><td>Small</td></tr>
@@ -147,6 +121,7 @@
         </table>
       </div>
       <div class="col-xs-2 col-md-4">
+        <h3>Pet Ages</h3>
         <table>
           <tr><th>Ages</th></tr>
           <tr><td>Baby</td></tr>
@@ -156,6 +131,7 @@
         </table>
       </div>
       <div class="col-xs-6 col-md-4">
+        <h3>Pet Options</h3>
         <table>
           <tr><th>Option</th><th>Description</th></tr>
           <tr><td>altered</td><td>Spayed / Neutered</td></tr>
@@ -227,6 +203,45 @@
       <section id="about">
         <h2>Meet the team (and our furry friends!)</h2>
       </section>
+      <section id="care">
+        <div class="headerInfo">
+          <h2>Pet Care</h2>
+          <h4>All animals are different, but here are some basic tips for owning any kind of pet:</h4>
+        </div>
+        <div class="careList">
+          <ol>
+            <li><h3>Get your pet spayed/neutered</h3>
+            <p>Most animal shelters will have already taken care of this, but make sure your animal will not add to the rampant pet overpopulation problem.</p></li>
+            <li><h3>Get your pet examined regularly</h3>
+            <p>Pets can get sick too.  Make sure to get your pet looked at annually by a vet to make sure that they are in good health.  Regular vet visits will also help to ensure that your pet is up to date with their vaccines.</p></li>
+            <li><h3>Keep your pet active</h3>
+            <p>In addition to checking their overall health, a vet can also tell you if your pet is maintaining a healthy weight.  Many pets are overfed, which can lead to diabetes, arthritis, and even cancer. Make sure your pet has plenty of opportunity to exercise, and double check that you are feeding it the right amount of food.</p></li>
+            <li><h3>Keep your pet mentally stimulated</h3>
+            <p>Pets need to exercise their minds as well as their bodies. Bored pets often become destructive pets. Make sure that doesn't happen by keeping your pet occupied with toys and play time with their humans.</p></li>
+            <li><h3>Microchip your pet</h3>
+            <p>Many pets end up in shelters simply because they got lost one day and couldn't find their way back home. Make sure this doesn't happen to yours by having it microchipped.</p></li>
+          </ol>
+        </div>
+      </section>
+
+      <div id="carousel-flickr" class="col-xs-8 col-xs-offset-2 col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-0 carousel slide" data-ride="carousel">
+        <!-- Removed the Indicators -->
+
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner flickrItem" role="listbox">
+          
+        </div>
+
+        <!-- Controls -->
+        <a class="left carousel-control" href="#carousel-flickr" role="button" data-slide="prev">
+          <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="right carousel-control" href="#carousel-flickr" role="button" data-slide="next">
+          <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+      </div>   
     </div>  
   </div> 
   

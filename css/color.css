@@ -1,3 +1,9 @@
+body {
+ padding-top: 70px;
+}
+section {
+  padding-top: 50px;
+}
 .container-fluid {
   padding-left: 10px;
   padding-right: 10px;
