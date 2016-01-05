@@ -1,8 +1,10 @@
 $(document).ready(function(){
   $("#noAnimal").hide();
   $("#noZip").hide();
+  $('.newSelect').select2();
 
   $("#selectBreed").on("click", function(){
+    debugger;
     var animal = $("#animal2").val();
 
     if(animal === null){
@@ -18,7 +20,7 @@ $(document).ready(function(){
     $(".menu").empty();  
     
     breedChecker();   
-    $('#selectBreed').select2();
+    //$('#selectBreed').select2();
   });
 
   $(".breedSearch").on("click", function(e) {

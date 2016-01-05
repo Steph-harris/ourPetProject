@@ -27,12 +27,12 @@
 
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        <form class="navbar-form navbar-right" role="search">
+        <!-- <form class="navbar-form navbar-right" role="search">
           <div class="form-group">
             <input type="text" class="form-control" placeholder="Search">
           </div>
           <button type="submit" class="btn btn-default">Submit</button>
-        </form>
+        </form> -->
         <ul class="nav navbar-nav navbar-right">
           <li class="active"><a href="#">Pet Search<span class="sr-only">(current)</span></a></li>
           <li><a href="#whyAdopt">Why Adopt?</a></li>
@@ -58,7 +58,7 @@
             </div>
 
             <div>
-              <select id="animal">
+              <select class="newSelect" id="animal">
                 <option value="" disabled="disabled" selected="selected">Choose an animal(Optional)</option>
                 <option value="dog">Dog</option>
                 <option value="cat">Cat</option>
@@ -80,7 +80,7 @@
             <p>Choose an animal type, then choose a breed</p>
             
             <div class="col-sm-6">
-              <select id="animal2">
+              <select class="newSelect" id="animal2">
                 <option value="" disabled="disabled" selected="selected">Choose an animal</option>
                 <option value="dog">Dog</option>
                 <option value="cat">Cat</option>
@@ -90,7 +90,7 @@
               </select>
             </div>
             
-            <select class="menu col-sm-6" id="selectBreed" data-live-search="true" title="Choose Breed">
+            <select class="menu col-sm-6 newSelect" id="selectBreed" data-live-search="true" title="Choose Breed">
               <!--breed list populates here -->
             </select>
             
