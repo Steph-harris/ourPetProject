@@ -32,7 +32,7 @@ $(document).ready(function(){
         //remove cite error
         i.find('.mw-ext-cite-error').remove();
 
-        $('#wikiInfo').addClass("col-xs-12 col-md-6").html($(i).find('p'));
+        $('#wikiInfo').addClass("col-xs-12").html($(i).find('p'));
         //If there isn't a direct matching Wiki response, show nothing
         $('#wikiInfo:contains(refer to)').html("").find('p');
         $('#wikiInfo:contains(Redirect)').html("").find('p');

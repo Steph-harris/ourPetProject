@@ -12,7 +12,7 @@
   <link rel="stylesheet" type="text/css" href="css/color.css">
 </head>
 <body>
-  <nav class="navbar navbar-default">
+  <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container-fluid">
       <!-- Brand and toggle get grouped for better mobile display -->
       <div class="navbar-header">
@@ -34,33 +34,12 @@
           <button type="submit" class="btn btn-default">Submit</button>
         </form>
         <ul class="nav navbar-nav navbar-right">
-          <li class="active"><a href="#searchBoxes">Pet Search<span class="sr-only">(current)</span></a></li>
-          <li><a href="#about">About Us</a></li>
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Adoption<span class="caret"></span></a>
-            <ul class="dropdown-menu">
-              <li><a href="#whyAdopt">Why Adopt?</a></li>
-              <li><a href="#">Process</a></li>
-              <li><a href="#">Information</a></li>
-            </ul>
-          </li>
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Care<span class="caret"></span></a>
-            <ul class="dropdown-menu">
-              <li><a href="#">Find a Vet</a></li>
-              <li><a href="#">Breeding</a></li>
-              <li><a href="#">Grooming</a></li>
-              <li><a href="#">Training</a></li>
-            </ul>
-          </li>
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Shelters<span class="caret"></span></a>
-            <ul class="dropdown-menu">
-              <li><a href="#">Volunteer</a></li>
-              <li><a href="#">Foster Care</a></li>
-              <li><a href="#">Prevention of Cruelty</a></li>
-            </ul>
-          </li>
+          <li class="active"><a href="#">Pet Search<span class="sr-only">(current)</span></a></li>
+          <li><a href="#whyAdopt">Why Adopt?</a></li>
+          <li><a href="#care">Care</a></li> 
+          <li><a href="#about">About Us</a></li>                 
+          <li><a href="#">Log In</a></li>                 
+          <li><a href="#">Register</a></li>                          
         </ul>
       </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
@@ -69,8 +48,8 @@
   <div class="container-fluid">
   <!-- Page Content goes here -->
     <div class="row">       
-      <form class="col-md-8" id="searchBoxes">
-        <div class="col-sm-12 col-md-6">
+      <form id="searchBoxes">
+        <div class="col-xs-12 col-sm-6">
           <div class="well well-lg">              
             <h1>Search By Location</h1>
             <p>Enter your Zip Code and choose an animal</p>
@@ -95,7 +74,7 @@
           </div>
         </div>
 
-        <div class="col-sm-12 col-md-6">
+        <div class="col-xs-12 col-sm-6">
           <div class="well well-lg">              
             <h1>Search By Breed</h1>
             <p>Choose an animal type, then choose a breed</p>
@@ -122,6 +101,126 @@
           </div>
         </div>               
       </form>
+    </div>
+
+    <div class="row">
+      <div class="col-xs-4 col-md-4">
+        <h3>Pet Sizes</h3>
+        <table>
+          <tr><th>Size</th><th>Description</th></tr>
+          <tr><td>S</td><td>Small</td></tr>
+          <tr><td>M</td><td>Medium</td></tr>
+          <tr><td>L</td><td>Large</td></tr>
+          <tr><td>XL</td><td>Extra Large</td></tr>
+        </table>
+      </div>
+      <div class="col-xs-2 col-md-4">
+        <h3>Pet Ages</h3>
+        <table>
+          <tr><th>Ages</th></tr>
+          <tr><td>Baby</td></tr>
+          <tr><td>Young</td></tr>
+          <tr><td>Adult</td></tr>
+          <tr><td>Senior</td></tr>
+        </table>
+      </div>
+      <div class="col-xs-6 col-md-4">
+        <h3>Pet Options</h3>
+        <table>
+          <tr><th>Option</th><th>Description</th></tr>
+          <tr><td>altered</td><td>Spayed / Neutered</td></tr>
+          <tr><td>noClaws</td><td>No Claws</td></tr>
+          <tr><td>hasShots</td><td>Has Current Shots</td></tr>
+          <tr><td>housebroken</td><td>Housebroken</td></tr>
+          <tr><td>noCats</td><td>Not Good With Cats</td></tr>
+          <tr><td>noDogs</td><td>Not Good With Dogs</td></tr>
+          <tr><td>noKids</td><td>Not Good With Kids</td></tr>
+          <tr><td>specialNeeds</td><td>Has Special Needs</td></tr>
+        </table>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-xs-12 col-md-8 col-md-offset-2">
+        <div class="col-xs-12" id="breedResult">
+          
+        </div>
+        <br />
+        <div class="row photoRow">
+          
+        </div>
+        <br />
+        <div id="wikiInfo">&nbsp;
+          <p></p>
+        </div> 
+      </div>   
+    </div>
+    <div class="row">
+      <section id="whyAdopt">
+        <h2>Why Adopt a Pet?</h2>
+        <h4>Simply put, having a pet is awesome! But if that isn't enough to convince you to adopt one, here are some other wonderful reasons to get a pet from a shelter:</h4>
+        <div class="col-xs-12 col-md-4">
+          <div class="well well-lg">
+            <h3>You could literally be saving a life</h3>
+            <p>There are almost three million adoptable animals euthanized in the United States each year because there aren't enough people to adopt them all, and that number only includes dogs and cats. By adopting, you are giving a lost, abandoned, and helpless pet a second chance at a happy life.</p>
+          </div>
+        </div>
+        <div class="col-xs-12 col-md-4">
+          <div class="well well-lg">
+            <h3>You'll save money</h3>
+            <p>Not only are shelter pets often spayed/neutered, but they're usually already  up to date on their vaccinations and shots as well.  Plus, these pets are often already housetrained and can even do a few tricks!</p>
+          </div> 
+        </div>
+        <div class="col-xs-12 col-md-4">
+          <div class="well well-lg">
+            <h3>Pets boost your overall well-being</h3>
+            <p>Pet owners have been linked by the CDC to decreased blood pressure, cholesterol and triglyceride levels, and overall lower stress levels. Pets also give their owner a sense of purpose and are great for combatting loneliness and depression with their unconditional love and companionship. </p>
+          </div>
+        </div>
+        <div class="col-xs-12 col-md-4">
+          <div class="well well-lg">
+            <h3>You're supporting an animal shelter instead of a mass breeding mill</h3>
+            <p>If you don't buy your pet directly from a reputable breeder, you may be purchasing from a mill.  Mills are mass breeding facilities where animals are kept in deplorable conditions and forced to reproduce until they are no longer able. When they stop producing, the animals are either killed or abandoned. <br />
+            <br />
+            In contrast, animal shelters provide a valuable community service. They are non-profit organizations that promote the welfare of all animals and are often staffed by volunteers. Shelters help control the pet population by spaying/neutering their animals as well as by taking the time to place animals in situations where they can be successful pets.  Any fees collected by a shelter goes towards the support of this mission.</p>
+          </div>
+        </div>
+        <div class="col-xs-12 col-md-4">
+          <div class="well well-lg">
+            <h3>You'll help create more cage space for other needy animals</h3>
+            <p>Million of pets are homeless because of a situation that was out of their control (i.e. a new baby, move, divorce, or death) and not because of anything they did wrong. In some cases, their owners just weren't interested in training them. By adopting instead of buying your new pet, you will be allowing another homeless pet (especially those that are elderly or special needs) to be taken in off the streets by a shelter.</p>
+          </div>
+        </div>
+        <div class="col-xs-12 col-md-4">
+          <div class="well well-lg">
+            <h3>You'll gain a faithful companion and best friend</h3>
+            <p>Pets are remarkably intelligent. Most shelter pets seem to remember what their lives were like before they were adopted and are endlessly grateful and loving to their new families for taking a chance on them. They tend to be endlessly affectionate and already possess socialization and cooperative skills since they have most likely already lived with a family.</p>
+          </div>
+        </div>
+      </section>
+      <section id="about">
+        <h2>Meet the team (and our furry friends!)</h2>
+      </section>
+      <section id="care">
+        <div class="headerInfo">
+          <h2>Pet Care</h2>
+          <h4>All animals are different, but here are some basic tips for owning any kind of pet:</h4>
+        </div>
+        <div class="careList">
+          <ol>
+            <li><h3>Get your pet spayed/neutered</h3>
+            <p>Most animal shelters will have already taken care of this, but make sure your animal will not add to the rampant pet overpopulation problem.</p></li>
+            <li><h3>Get your pet examined regularly</h3>
+            <p>Pets can get sick too.  Make sure to get your pet looked at annually by a vet to make sure that they are in good health.  Regular vet visits will also help to ensure that your pet is up to date with their vaccines.</p></li>
+            <li><h3>Keep your pet active</h3>
+            <p>In addition to checking their overall health, a vet can also tell you if your pet is maintaining a healthy weight.  Many pets are overfed, which can lead to diabetes, arthritis, and even cancer. Make sure your pet has plenty of opportunity to exercise, and double check that you are feeding it the right amount of food.</p></li>
+            <li><h3>Keep your pet mentally stimulated</h3>
+            <p>Pets need to exercise their minds as well as their bodies. Bored pets often become destructive pets. Make sure that doesn't happen by keeping your pet occupied with toys and play time with their humans.</p></li>
+            <li><h3>Microchip your pet</h3>
+            <p>Many pets end up in shelters simply because they got lost one day and couldn't find their way back home. Make sure this doesn't happen to yours by having it microchipped.</p></li>
+          </ol>
+        </div>
+      </section>
 
       <div id="carousel-flickr" class="col-xs-8 col-xs-offset-2 col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-0 carousel slide" data-ride="carousel">
         <!-- Removed the Indicators -->
@@ -141,41 +240,6 @@
           <span class="sr-only">Next</span>
         </a>
       </div>   
-    </div>
-
-    <div class="row">
-      <div class="col-xs-12" id="breedResult">
-        
-      </div>
-      <div class="row photoRow">
-        
-      </div>
-      <div id="wikiInfo">&nbsp;
-        <p></p>
-      </div> 
-    </div>   
-    <div class="row">
-      <section id="whyAdopt">
-        <h2>Why Adopt a Pet?</h2>
-        <p>Simply put, having a pet is awesome! But if that isn't enough to convince you to adopt one, here are some other wonderful reasons to get a pet from a shelter:</p>
-        <h3>You could literally be saving a life</h3>
-        <p>There are almost three million adoptable animals euthanized in the United States each year because there aren't enough people to adopt them all, and that number only includes dogs and cats. By adopting, you are giving a lost, abandoned, and helpless pet a second chance at a happy life.</p>
-        <h3>You'll save money</h3>
-        <p>Not only are shelter pets often spayed/neutered, but they're usually already  up to date on their vaccinations and shots as well.  Plus, these pets are often already housetrained and can even do a few tricks!</p>
-        <h3>Pets boost your overall well-being</h3>
-        <p>Pet owners have been linked by the CDC to decreased blood pressure, cholesterol and triglyceride levels, and overall lower stress levels. Pets also give their owner a sense of purpose and are great for combatting loneliness and depression with their unconditional love and companionship. </p>
-        <h3>You're supporting an animal shelter instead of a mass breeding mill</h3>
-        <p>If you don't buy your pet directly from a reputable breeder, you may be purchasing from a mill.  Mills are mass breeding facilities where animals are kept in deplorable conditions and forced to reproduce until they are no longer able. When they stop producing, the animals are either killed or abandoned. <br />
-        <br />
-        In contrast, animal shelters provide a valuable community service. They are non-profit organizations that promote the welfare of all animals and are often staffed by volunteers. Shelters help control the pet population by spaying/neutering their animals as well as by taking the time to place animals in situations where they can be successful pets.  Any fees collected by a shelter goes towards the support of this mission.</p>
-        <h3>You'll help create more cage space for other needy animals</h3>
-        <p>Million of pets are homeless because of a situation that was out of their control (i.e. a new baby, move, divorce, or death) and not because of anything they did wrong. In some cases, their owners just weren't interested in training them. By adopting instead of buying your new pet, you will be allowing another homeless pet (especially those that are elderly or special needs) to be taken in off the streets by a shelter.</p>
-        <h3>You'll gain a faithful companion and best friend</h3>
-        <p>Pets are remarkably intelligent. Most shelter pets seem to remember what their lives were like before they were adopted and are endlessly grateful and loving to their new families for taking a chance on them. They tend to be endlessly affectionate and already possess socialization and cooperative skills since they have most likely already lived with a family.</p>
-      </section>
-      <section id="about">
-        <h2>Meet the team (and our furry friends!)</h2>
-      </section>
     </div>  
   </div> 
   
