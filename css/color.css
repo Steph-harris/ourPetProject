@@ -2,6 +2,9 @@
   padding-left: 10px;
   padding-right: 10px;
 }
+section{
+  overflow: hidden;
+}
 #carousel-flickr{
   padding: 0;
 }
@@ -17,4 +20,7 @@
   padding-left: 0;
   padding-right: 0;
 }
-
+#whyAdopt>.well{
+  margin: 5px;
+  padding: 10px;
+}
