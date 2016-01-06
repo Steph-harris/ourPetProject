@@ -14,6 +14,10 @@ section{
 #carousel-flickr{
   padding: 0;
 }
+.carousel-inner>.item>img{
+  width: 525px;
+  height:425px;
+}
 .well>.col-sm-6{
   padding-left: 0;
 }

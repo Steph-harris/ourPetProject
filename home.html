@@ -69,7 +69,7 @@
               <button class="btn btn-primary zip">Search</button>
             </div>
             <div class="alert alert-danger" id="noZip" role="alert">
-              <a href="#" class="alert-link">Please Enter a Valid Zip Code</a>
+              <a href="#" class="alert-link">Please Enter a Valid 5 Digit Zip Code</a>
             </div>             
           </div>
         </div>
@@ -93,23 +93,27 @@
             <select class="menu col-sm-6 newSelect" id="selectBreed" data-live-search="true" title="Choose Breed">
               <!--breed list populates here -->
             </select>
-            
-            <div class="alert alert-danger" id="noAnimal" role="alert">
-              <a href="#" class="alert-link">Please Choose an Animal</a>
-            </div>
+                      
             <button class="btn btn-primary breedSearch">Search</button>
+            <div class="alert alert-danger" id="noAnimal" role="alert">
+              <a href="#" class="alert-link">Please Choose an Animal and a Breed</a>
+            </div>
           </div>
         </div>               
       </form>
     </div>
 
     <div class="row">
-      <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#descriptions" aria-expanded="false" aria-controls="#descriptions">
-        View Pet Descriptions
-      </button>
+      <div class="col-xs-4 col-xs-offset-4 col-sm-2 col-sm-offset-5">
+        <button class="btn btn-info" id="dscrptnBtn"type="button" data-toggle="collapse" data-target="#descriptions" aria-expanded="false" aria-controls="#descriptions">
+          Pet Value Keys
+        </button>
+      </div>
+    </div>
+    <div class="row">
       <div class="collapse" id="descriptions">
-        <div class="col-xs-4 col-md-4">
-          <h3>Pet Sizes</h3>
+        <div class="col-xs-6 col-sm-2 col-sm-offset-1 col-md-3 col-md-offset-1">
+          <h3>Sizes</h3>
           <table>
             <tr><th>Size</th><th>Description</th></tr>
             <tr><td>S</td><td>Small</td></tr>
@@ -118,18 +122,26 @@
             <tr><td>XL</td><td>Extra Large</td></tr>
           </table>
         </div>
-        <div class="col-xs-2 col-md-4">
-          <h3>Pet Ages</h3>
+        <div class="col-xs-6 col-sm-2">
+          <h3>Ages</h3>
           <table>
-            <tr><th>Ages</th></tr>
+            <tr><th>Age</th></tr>
             <tr><td>Baby</td></tr>
             <tr><td>Young</td></tr>
             <tr><td>Adult</td></tr>
             <tr><td>Senior</td></tr>
           </table>
         </div>
-        <div class="col-xs-6 col-md-4">
-          <h3>Pet Options</h3>
+        <div class="col-xs-6 col-sm-2">
+          <h3>Sex</h3>
+          <table>
+            <tr><th>Ages</th></tr>
+            <tr><td>M</td><td>Male</td></tr>
+            <tr><td>F</td><td>Female</td></tr>
+          </table>
+        </div>
+        <div class="col-xs-6 col-sm-4">
+          <h3>Options</h3>
           <table>
             <tr><th>Option</th><th>Description</th></tr>
             <tr><td>altered</td><td>Spayed / Neutered</td></tr>

@@ -1,4 +1,7 @@
 $(document).ready(function(){
+  $("#noZip").hide();
+  $("#dscrptnBtn").hide();
+
   $(".zip").on("click", function(e){
     e.preventDefault();
         
@@ -7,13 +10,18 @@ $(document).ready(function(){
 
     $('#wikiInfo').empty();
 
-    if(zipCode === ""){
+    if(zipCode === "" || zipCode.length !== 5){
       $("#noZip").show().fadeOut(3500);
       return;
     } else {
       searchByZip();
     }
-  })
+  });
+
+  //Toggle Button Text
+  $("#dscrptnBtn").on("click", function(){
+    //alert("grabbed");
+  });
 
   function searchByZip(){   
     var animal = $("#animal").val();
@@ -30,6 +38,7 @@ $(document).ready(function(){
 
     $("#breedResult").empty();
     $(".photoRow").empty();
+    $("#dscrptnBtn").show();
 
     $.ajax({     
       type:"GET",
