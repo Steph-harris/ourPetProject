@@ -16,9 +16,10 @@ We are making a petfinder that displays pets up for adoption close to the users 
  - https://showusapet.herokuapp.com/
 
 ## API's Used
- - API one - Google Maps
- - API two - Petfinder.com
- - API three - Wikipedia
+ - API one - Petfinder.com
+ - API two - Wikipedia
+ - API three - Flickr
+ - API four - Google Maps
 
 ## Trello Link
  - https://trello.com/b/Y1SLNkrD/project-outline

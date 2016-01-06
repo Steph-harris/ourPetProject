@@ -1,6 +1,15 @@
+body {
+ padding-top: 70px;
+}
+section {
+  padding-top: 50px;
+}
 .container-fluid {
   padding-left: 10px;
   padding-right: 10px;
+}
+section{
+  overflow: hidden;
 }
 #carousel-flickr{
   padding: 0;
@@ -8,8 +17,11 @@
 .well>.col-sm-6{
   padding-left: 0;
 }
-#searchBoxes{
-  padding-left: 0;
-  padding-right: 0;
+.well-sm{
+  text-align: center;
+  margin: 1px;
 }
-
+#whyAdopt>.well{
+  margin: 5px;
+  padding: 10px;
+}
