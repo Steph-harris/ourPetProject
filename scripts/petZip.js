@@ -1,7 +1,7 @@
 $(document).ready(function(){
   $(".zip").on("click", function(e){
     e.preventDefault();
-        debugger;
+        
     var animal = $("#animal").val();
     var zipCode = $("#enterZip").val();
 
@@ -14,12 +14,6 @@ $(document).ready(function(){
       searchByZip();
     }
   })
-
-  $(".breedSearch").on("click", function(e) {
-    e.preventDefault();
-    
-    searchByBreed();
-  });
 
   function searchByZip(){   
     var animal = $("#animal").val();
@@ -69,8 +63,8 @@ $(document).ready(function(){
           var newPetPicDiv = $("<div>")
             .addClass("col-xs-12 col-md-4 col-md-offset-4");
 
-            newPetPicDiv.append(newPetPic);
-            $(".photoRow").empty().append(newPetPicDiv);
+          newPetPicDiv.append(newPetPic);
+          $(".photoRow").empty().append(newPetPicDiv);
         }; 
 
         for(i=0; i<petOptions.length; i++){
