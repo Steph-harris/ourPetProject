@@ -13,7 +13,12 @@ $(document).ready(function(){
     } else {
       searchByZip();
     }
-  })
+  });
+
+  //Toggle Button Text
+  $("#dscrptnBtn").on("click", function(){
+    alert("grabbed");
+  });
 
   function searchByZip(){   
     var animal = $("#animal").val();

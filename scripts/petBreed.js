@@ -3,12 +3,13 @@ $(document).ready(function(){
   $("#noZip").hide();
   $('.newSelect').select2();
 
-  $("#selectBreed").on("click", function(){
+  $("#selectBreed").on("select2:open", function(){
     debugger;
     var animal = $("#animal2").val();
 
     if(animal === null){
       $("#noAnimal").show().fadeOut(3500);
+      //$("#selectBreed").("select2:close");
       return;
     } 
   })
