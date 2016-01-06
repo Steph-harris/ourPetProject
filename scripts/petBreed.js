@@ -4,7 +4,6 @@ $(document).ready(function(){
   $('.newSelect').select2();
 
   $("#selectBreed").on("select2:open", function(){
-    debugger;
     var animal = $("#animal2").val();
 
     if(animal === null){
@@ -25,6 +24,12 @@ $(document).ready(function(){
 
   $(".breedSearch").on("click", function(e) {
     e.preventDefault();
+
+    if($("#animal2").val() === null || $("#selectBreed").val() ){
+      $("#noAnimal").show().fadeOut(3500);
+      //$("#selectBreed").("select2:close");
+      return;
+    } 
     
     searchByBreed();
   });

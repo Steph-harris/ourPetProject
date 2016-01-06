@@ -7,7 +7,7 @@ $(document).ready(function(){
 
     $('#wikiInfo').empty();
 
-    if(zipCode === ""){
+    if(zipCode === "" || zipCode.length !== 5){
       $("#noZip").show().fadeOut(3500);
       return;
     } else {
@@ -17,7 +17,7 @@ $(document).ready(function(){
 
   //Toggle Button Text
   $("#dscrptnBtn").on("click", function(){
-    alert("grabbed");
+    //alert("grabbed");
   });
 
   function searchByZip(){   
