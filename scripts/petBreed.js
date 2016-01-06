@@ -1,6 +1,5 @@
 $(document).ready(function(){
   $("#noAnimal").hide();
-  $("#noZip").hide();
   $('.newSelect').select2();
 
   $("#selectBreed").on("select2:open", function(){
@@ -25,7 +24,7 @@ $(document).ready(function(){
   $(".breedSearch").on("click", function(e) {
     e.preventDefault();
 
-    if($("#animal2").val() === null || $("#selectBreed").val() ){
+    if($("#animal2").val() === null || $("#selectBreed").val() === null ){
       $("#noAnimal").show().fadeOut(3500);
       //$("#selectBreed").("select2:close");
       return;
@@ -78,6 +77,7 @@ $(document).ready(function(){
 
     $("#breedResult").empty();
     $(".photoRow").empty();
+    $("#dscrptnBtn").show();
 
     $.ajax({     
       type:"GET",

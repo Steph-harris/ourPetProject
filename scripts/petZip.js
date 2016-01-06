@@ -1,4 +1,7 @@
 $(document).ready(function(){
+  $("#noZip").hide();
+  $("#dscrptnBtn").hide();
+
   $(".zip").on("click", function(e){
     e.preventDefault();
         
@@ -35,6 +38,7 @@ $(document).ready(function(){
 
     $("#breedResult").empty();
     $(".photoRow").empty();
+    $("#dscrptnBtn").show();
 
     $.ajax({     
       type:"GET",
