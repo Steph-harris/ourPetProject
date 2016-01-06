@@ -1,9 +1,11 @@
 $(document).ready(function(){
   $(".zip").on("click", function(e){
-    debugger;
     e.preventDefault();
+        debugger;
     var animal = $("#animal").val();
     var zipCode = $("#enterZip").val();
+
+    $('#wikiInfo').empty();
 
     if(zipCode === ""){
       $("#noZip").show().fadeOut(3500);
@@ -12,16 +14,6 @@ $(document).ready(function(){
       searchByZip();
     }
   })
-  //on animal2 selection populate the breed list
-  //animal alert needs 2 event listeners: one for search button, and one for breed button
-  // $("#animal").change(function(){
-  //   var animal = $("#animal2").val(); 
-
-  //   $(".menu").empty();  
-    
-  //   breedChecker();   
-  //   //$('#selectBreed').select2();
-  // });
 
   $(".breedSearch").on("click", function(e) {
     e.preventDefault();
@@ -88,8 +80,6 @@ $(document).ready(function(){
           newPDiv.append(newP);
           $("#breedResult").append(newPDiv);
         }
-        
-        // contact-city+ state+ zip email phone
       }
     })
   };
