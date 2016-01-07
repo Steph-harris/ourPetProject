@@ -1,14 +1,13 @@
 $(document).ready(function(){
   $("#noAnimal").hide();
-  $("#noZip").hide();
   $('.newSelect').select2();
 
-  $("#selectBreed").on("click", function(){
-    debugger;
+  $("#selectBreed").on("select2:open", function(){
     var animal = $("#animal2").val();
 
     if(animal === null){
       $("#noAnimal").show().fadeOut(3500);
+      //$("#selectBreed").("select2:close");
       return;
     } 
   })
@@ -24,6 +23,11 @@ $(document).ready(function(){
 
   $(".breedSearch").on("click", function(e) {
     e.preventDefault();
+
+    if($("#animal2").val() === null || $("#selectBreed").val() === null ){
+      $("#noAnimal").show().fadeOut(3500);
+      return;
+    } 
     
     searchByBreed();
   });
@@ -72,6 +76,7 @@ $(document).ready(function(){
 
     $("#breedResult").empty();
     $(".photoRow").empty();
+    $("#dscrptnBtn").show();
 
     $.ajax({     
       type:"GET",
@@ -89,8 +94,7 @@ $(document).ready(function(){
         $("#breedResult").prepend(yourPet);
         $("#breedResult").append(yourPetContact);
 
-        for(i=0; i<petPhoto.length; i++){
-          
+        for(i=0; i<petPhoto.length; i++){ 
           if(petPhoto[i]["@size"] === "pn"){            
             var newPetPic = $("<img>").attr("src", petPhoto[i]["$t"])
               .addClass("img-responsive");
@@ -100,7 +104,7 @@ $(document).ready(function(){
             $(".photoRow").append(newPetPicDiv);
           }
         }
-
+        // change col class sizes based on how many images there are
         if($(".img-responsive").length === 1){
           var newPetPicDiv = $("<div>")
             .addClass("col-xs-12 col-md-4 col-md-offset-4");
@@ -108,18 +112,28 @@ $(document).ready(function(){
             newPetPicDiv.append(newPetPic);
             $(".photoRow").empty().append(newPetPicDiv);
         }; 
+        //need to loop so both pics are added?
+        if($(".img-responsive").length === 2){
+          // for(i=0; i<$(".img-responsive").length; i++){ 
+          //   newPetPicDiv = $("<div>")
+          //     .addClass("col-xs-12 col-md-6");           
+          // }
+          
+          // newPetPicDiv.append(newPetPic);
+          // $(".photoRow").empty().append(newPetPicDiv);
+        }; 
 
         for(i=0; i<petOptions.length; i++){
-          var newPDiv = $("<div>").addClass("col-xs-6 col-md-3 well well-sm");
+          var newPDiv = $("<div>").addClass("col-xs-6 col-md-3");
+          var newPDiv2 = $("<div>").addClass("well well-sm");
           var newP = $("<h4>").text(petOptions[i]["$t"]);
-
-          newPDiv.append(newP);
+          
+          newPDiv2.append(newP);
+          newPDiv.append(newPDiv2);
           $("#breedResult").append(newPDiv);
-        }
-        
-        // contact-city+ state+ zip email phone
+        };
       }
-    })
+    });
   };
 });
 

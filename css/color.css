@@ -1,18 +1,27 @@
 body {
  padding-top: 70px;
+ border: 15px solid #2C3E50;
+}
+.headline{
+  text-align: center;
 }
 section {
   padding-top: 50px;
+  overflow: hidden;
 }
 .container-fluid {
   padding-left: 10px;
   padding-right: 10px;
 }
-section{
-  overflow: hidden;
+section>h2, .headerInfo {
+  text-align: center;
 }
 #carousel-flickr{
   padding: 0;
+}
+.carousel-inner>.item>img{
+  width: 550px;
+  height:425px;
 }
 .well>.col-sm-6{
   padding-left: 0;

@@ -1,24 +1,26 @@
 $(document).ready(function(){
+  $("#noZip").hide();
+  $("#dscrptnBtn").hide();
+
   $(".zip").on("click", function(e){
     e.preventDefault();
-        debugger;
+        
     var animal = $("#animal").val();
     var zipCode = $("#enterZip").val();
 
     $('#wikiInfo').empty();
 
-    if(zipCode === ""){
+    if(zipCode === "" || zipCode.length !== 5){
       $("#noZip").show().fadeOut(3500);
       return;
     } else {
       searchByZip();
     }
-  })
+  });
 
-  $(".breedSearch").on("click", function(e) {
-    e.preventDefault();
-    
-    searchByBreed();
+  //Toggle Button Text
+  $("#dscrptnBtn").on("click", function(){
+    //alert("grabbed");
   });
 
   function searchByZip(){   
@@ -36,6 +38,7 @@ $(document).ready(function(){
 
     $("#breedResult").empty();
     $(".photoRow").empty();
+    $("#dscrptnBtn").show();
 
     $.ajax({     
       type:"GET",
@@ -69,8 +72,8 @@ $(document).ready(function(){
           var newPetPicDiv = $("<div>")
             .addClass("col-xs-12 col-md-4 col-md-offset-4");
 
-            newPetPicDiv.append(newPetPic);
-            $(".photoRow").empty().append(newPetPicDiv);
+          newPetPicDiv.append(newPetPic);
+          $(".photoRow").empty().append(newPetPicDiv);
         }; 
 
         for(i=0; i<petOptions.length; i++){
