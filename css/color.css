@@ -2,6 +2,9 @@ body {
  padding-top: 70px;
  border: 15px solid #2C3E50;
 }
+.navbar-right{
+  margin-right: 0;
+}
 .headline{
   text-align: center;
 }
