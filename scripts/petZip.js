@@ -18,11 +18,6 @@ $(document).ready(function(){
     }
   });
 
-  //Toggle Button Text
-  $("#dscrptnBtn").on("click", function(){
-    //alert("grabbed");
-  });
-
   function searchByZip(){   
     var animal = $("#animal").val();
     var zipVal = $("#enterZip").val();
@@ -87,4 +82,3 @@ $(document).ready(function(){
     })
   };
 });
-
