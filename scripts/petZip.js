@@ -21,7 +21,7 @@ $(document).ready(function(){
   function searchByZip(){   
     var animal = $("#animal").val();
     var zipVal = $("#enterZip").val();
-    var petFAPI = "https://crossorigin.me/https://api.petfinder.com/pet.find?"
+    var petFAPI = "https://api.petfinder.com/pet.find?"
     var petFAPIParam = {
       key: "311acd0ca6ee16428a93eb5dafe77634",
       animal: animal,
