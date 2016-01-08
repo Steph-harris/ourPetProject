@@ -3,6 +3,10 @@ $(document).ready(function(){
   $("#breedSearchError").hide();
   $('.newSelect').select2();
 
+  $(".newSelect").select2({
+    width : '60%'
+  });
+
   $("#selectBreed").on("select2:opening", function(){
     var animal = $("#animal2").val();
     if(animal === null){    
