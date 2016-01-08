@@ -1,16 +1,16 @@
 $(document).ready(function(){
   $("#noAnimal").hide();
+  $("#breedSearchError").hide();
   $('.newSelect').select2();
 
-  $("#selectBreed").on("select2:open", function(){
+  $("#selectBreed").on("select2:opening", function(){
     var animal = $("#animal2").val();
-
-    if(animal === null){
+    if(animal === null){    
       $("#noAnimal").show().fadeOut(3500);
-      //$("#selectBreed").("select2:close");
-      return;
-    } 
-  })
+      $("#selectBreed").select2().trigger("select2:close");
+    }; 
+  });
+
   //on animal2 selection populate the breed list
   //animal alert needs 2 event listeners: one for search button, and one for breed button
   $("#animal2").change(function(){
@@ -25,10 +25,9 @@ $(document).ready(function(){
     e.preventDefault();
 
     if($("#animal2").val() === null || $("#selectBreed").val() === null ){
-      $("#noAnimal").show().fadeOut(3500);
+      $("#breedSearchError").show().fadeOut(3500);
       return;
-    } 
-    
+    }  
     searchByBreed();
   });
 
@@ -107,7 +106,7 @@ $(document).ready(function(){
         // change col class sizes based on how many images there are
         if($(".img-responsive").length === 1){
           var newPetPicDiv = $("<div>")
-            .addClass("col-xs-12 col-md-4 col-md-offset-4");
+            .addClass("col-xs-6 col-xs-offset-3 col-md-4 col-md-offset-4");
 
             newPetPicDiv.append(newPetPic);
             $(".photoRow").empty().append(newPetPicDiv);
