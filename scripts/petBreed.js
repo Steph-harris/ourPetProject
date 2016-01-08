@@ -1,16 +1,16 @@
 $(document).ready(function(){
   $("#noAnimal").hide();
+  $("#breedSearchError").hide();
   $('.newSelect').select2();
 
-  $("#selectBreed").on("select2:open", function(){
+  $("#selectBreed").on("select2:opening", function(){
     var animal = $("#animal2").val();
-
-    if(animal === null){
+    if(animal === null){    
       $("#noAnimal").show().fadeOut(3500);
-      //$("#selectBreed").("select2:close");
-      return;
-    } 
-  })
+      $("#selectBreed").select2().trigger("select2:close");
+    }; 
+  });
+
   //on animal2 selection populate the breed list
   //animal alert needs 2 event listeners: one for search button, and one for breed button
   $("#animal2").change(function(){
@@ -25,10 +25,9 @@ $(document).ready(function(){
     e.preventDefault();
 
     if($("#animal2").val() === null || $("#selectBreed").val() === null ){
-      $("#noAnimal").show().fadeOut(3500);
+      $("#breedSearchError").show().fadeOut(3500);
       return;
-    } 
-    
+    }  
     searchByBreed();
   });
 
