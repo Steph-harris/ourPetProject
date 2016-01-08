@@ -1,4 +1,5 @@
 body {
+ position: relative;
  padding-top: 70px;
  border: 15px solid #2C3E50;
 }
