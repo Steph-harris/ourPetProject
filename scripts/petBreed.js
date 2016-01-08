@@ -1,5 +1,6 @@
 $(document).ready(function(){
   $("#noAnimal").hide();
+  $("#breedSearchError").hide();
   $('.newSelect').select2();
 
   $("#selectBreed").on("select2:opening", function(){
@@ -7,8 +8,7 @@ $(document).ready(function(){
     if(animal === null){    
       $("#noAnimal").show().fadeOut(3500);
       $("#selectBreed").select2().trigger("select2:close");
-      };
-      return;  
+    }; 
   });
 
   //on animal2 selection populate the breed list
@@ -25,10 +25,9 @@ $(document).ready(function(){
     e.preventDefault();
 
     if($("#animal2").val() === null || $("#selectBreed").val() === null ){
-      $("#noAnimal").show().fadeOut(3500);
+      $("#breedSearchError").show().fadeOut(3500);
       return;
-    } 
-    
+    }  
     searchByBreed();
   });
 
