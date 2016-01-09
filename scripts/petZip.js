@@ -63,16 +63,16 @@ $(document).ready(function(){
           }
         }
 
-        if($(".img-responsive").length === 1){
+        if($(".img-responsive").length === 1 || $(".img-responsive").length === 2){
           var newPetPicDiv = $("<div>")
-            .addClass("col-xs-12 col-md-4 col-md-offset-4");
+            .addClass("col-xs-6 col-xs-offset-3 col-md-4 col-md-offset-4");
 
           newPetPicDiv.append(newPetPic);
           $(".photoRow").empty().append(newPetPicDiv);
         }; 
 
         for(i=0; i<petOptions.length; i++){
-          var newPDiv = $("<div>").addClass("col-xs-6 col-md-3");
+          var newPDiv = $("<div>").addClass("col-xs-6");
           var newPDiv2 = $("<div>").addClass("well well-sm");
           var newP = $("<h4>").text(petOptions[i]["$t"]);
           
