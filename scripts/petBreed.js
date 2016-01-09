@@ -1,7 +1,6 @@
 $(document).ready(function(){
   $("#noAnimal").hide();
   $("#breedSearchError").hide();
-  $('.newSelect').select2();
 
   $(".newSelect").select2({
     width : '60%'
@@ -108,22 +107,12 @@ $(document).ready(function(){
           }
         }
         // change col class sizes based on how many images there are
-        if($(".img-responsive").length === 1){
+        if($(".img-responsive").length === 1 || $(".img-responsive").length === 2){
           var newPetPicDiv = $("<div>")
             .addClass("col-xs-6 col-xs-offset-3 col-md-4 col-md-offset-4");
 
-            newPetPicDiv.append(newPetPic);
-            $(".photoRow").empty().append(newPetPicDiv);
-        }; 
-        //need to loop so both pics are added?
-        if($(".img-responsive").length === 2){
-          // for(i=0; i<$(".img-responsive").length; i++){ 
-          //   newPetPicDiv = $("<div>")
-          //     .addClass("col-xs-12 col-md-6");           
-          // }
-          
-          // newPetPicDiv.append(newPetPic);
-          // $(".photoRow").empty().append(newPetPicDiv);
+          newPetPicDiv.append(newPetPic);
+          $(".photoRow").empty().append(newPetPicDiv);
         }; 
 
         for(i=0; i<petOptions.length; i++){

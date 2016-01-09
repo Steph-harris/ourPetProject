@@ -9,8 +9,11 @@ body {
 .navbar>.container-fluid .navbar-brand{
   margin-left: 0;
 }
-.headline{
+.headline, #breedResult>h3, #breedResult>h2{
   text-align: center;
+}
+#breedResult>h2{
+  font-size: 30px;
 }
 section {
   padding-top: 50px;
