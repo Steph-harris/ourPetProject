@@ -1,7 +1,6 @@
 $(document).ready(function(){
   $("#noAnimal").hide();
   $("#breedSearchError").hide();
-
   $(".newSelect").select2({
     width : '60%'
   });
@@ -15,7 +14,6 @@ $(document).ready(function(){
   });
 
   //on animal2 selection populate the breed list
-  //animal alert needs 2 event listeners: one for search button, and one for breed button
   $("#animal2").change(function(){
     var animal = $("#animal2").val(); 
 
