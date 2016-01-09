@@ -44,6 +44,7 @@ $(document).ready(function(){
     $.ajax({     
       type:"GET",
       url: petFAPI + $.param(petFAPIParam),
+      dataType:"jsonp",
       success: function(response){
         var breeds = response.petfinder.breeds.breed;
         for(i=0; i<breeds.length; i++){
@@ -81,6 +82,7 @@ $(document).ready(function(){
     $.ajax({     
       type:"GET",
       url: petFAPI + $.param(petFAPIParam),
+      dataType:"jsonp",
       success: function(response){
         var newPetInfo = response.petfinder.pet
         var newPetContact = response.petfinder.pet.contact

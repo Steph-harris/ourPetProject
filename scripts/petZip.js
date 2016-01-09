@@ -38,6 +38,7 @@ $(document).ready(function(){
     $.ajax({     
       type:"GET",
       url: petFAPI + $.param(petFAPIParam),
+      dataType:"jsonp",
       success: function(response){
         var newPetInfo = response.petfinder.pets.pet
         var newPetContact = response.petfinder.pets.pet.contact
