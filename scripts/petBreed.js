@@ -116,8 +116,8 @@ $(document).ready(function(){
         }; 
 
         for(i=0; i<petOptions.length; i++){
-          var newPDiv = $("<div>").addClass("col-xs-6 col-md-3");
-          var newPDiv2 = $("<div>").addClass("well well-sm");
+          var newPDiv = $("<div>").addClass("col-xs-6");
+          var newPDiv2 = $("<div>").addClass("well well-sm options");
           var newP = $("<h4>").text(petOptions[i]["$t"]);
           
           newPDiv2.append(newP);
