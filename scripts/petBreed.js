@@ -72,6 +72,9 @@ $(document).ready(function(){
     var animal = $("#animal").val();
     var breedVal = $("#selectBreed").val();
     var zipVal = $("#enterZip").val();
+    var sexVal = $("#genderSelect").val();
+    var ageVal = $("#ageSelect").val();
+    var sizeVal = $("#sizeSelect").val();
     var photoRowPics = $(".img-responsive").length;
     var petFAPI = "https://api.petfinder.com/pet.find?"
     var petFAPIParam = {
