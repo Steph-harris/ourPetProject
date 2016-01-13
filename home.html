@@ -48,37 +48,15 @@
       <form id="searchBoxes">
         <div class="col-xs-12 col-sm-6 col-md-5 col-md-offset-1">
           <div class="well well-lg">              
-            <h1>Search By Location</h1>
-            <p>Enter your Zip Code and choose an animal</p>
+            <h1>Search for Pets</h1>
+            <p>Enter your Zip Code and Choose Options</p>
             <div id="map">
               <input id="enterZip" class="controls" type="text" placeholder="Enter 5 digit Zip">
             </div>
-
+            <p>Choose an animal type, then choose a breed</p>
             <div>
               <select class="newSelect" id="animal">
                 <option value="" disabled="disabled" selected="selected">Choose an Animal (Optional)</option>
-                <option value="dog">Dog</option>
-                <option value="cat">Cat</option>
-                <option value="rabbit">Rabbit</option>
-                <option value="bird">Bird</option>
-                <option value="horse">Horse</option>
-              </select>
-              <button class="btn btn-primary zip">Search</button>
-            </div>
-            <div class="alert alert-danger" id="noZip" role="alert">
-              <a href="#" class="alert-link">Please Enter a Valid 5 Digit Zip Code</a>
-            </div>             
-          </div>
-        </div>
-
-        <div class="col-xs-12 col-sm-6 col-md-5">
-          <div class="well well-lg">              
-            <h1>Search By Breed</h1>
-            <p>Choose an animal type, then choose a breed</p>
-            
-            <div>
-              <select class="newSelect" id="animal2">
-                <option value="" disabled="disabled" selected="selected">Choose an Animal</option>
                 <option value="dog">Dog</option>
                 <option value="cat">Cat</option>
                 <option value="rabbit">Rabbit</option>
@@ -98,9 +76,12 @@
             </div>
             <div class="alert alert-danger" id="breedSearchError" role="alert">
               <a href="#" class="alert-link">Please Choose an Animal and a Breed</a>
-            </div>
+            </div>             
+            <div class="alert alert-danger" id="noZip" role="alert">
+              <a href="#" class="alert-link">Please Enter a Valid 5 Digit Zip Code</a>
+            </div>             
           </div>
-        </div>               
+        </div>            
       </form>
     </div>
 
@@ -270,6 +251,6 @@
   <script type="text/javascript" src="scripts/wikiCall.js"></script>
   <script type="text/javascript" src="scripts/flickrPics.js"></script>
   <script type="text/javascript" src="scripts/petBreed.js"></script>
-  <script type="text/javascript" src="scripts/petZip.js"></script>
+   <!-- <script type="text/javascript" src="scripts/petZip.js"></script> -->
 </body>
 </html>
