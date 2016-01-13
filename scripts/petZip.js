@@ -18,6 +18,8 @@ $(document).ready(function(){
     }
   });
 
+  //add zip code, sex, age, size, options filters
+  //add thumbnails w/ less info and show more pets on search
   function searchByZip(){   
     var animal = $("#animal").val();
     var zipVal = $("#enterZip").val();

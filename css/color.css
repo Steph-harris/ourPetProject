@@ -4,7 +4,7 @@ body {
  border: 15px solid #2C3E50;
 }
 .navbar-right{
-  margin-right: 0;
+  margin-right: 5px;
 }
 .navbar>.container-fluid .navbar-brand{
   margin-left: 0;
