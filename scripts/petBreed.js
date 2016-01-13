@@ -1,8 +1,6 @@
 $(document).ready(function(){
   $("#noAnimal").hide();
   $("#breedSearchError").hide();
-  //$('.newSelect').select2();
-
   $(".newSelect").select2({
     width : '60%'
   });
@@ -16,7 +14,6 @@ $(document).ready(function(){
   });
 
   //on animal2 selection populate the breed list
-  //animal alert needs 2 event listeners: one for search button, and one for breed button
   $("#animal2").change(function(){
     var animal = $("#animal2").val(); 
 
@@ -47,6 +44,7 @@ $(document).ready(function(){
     $.ajax({     
       type:"GET",
       url: petFAPI + $.param(petFAPIParam),
+      dataType:"jsonp",
       success: function(response){
         var breeds = response.petfinder.breeds.breed;
         for(i=0; i<breeds.length; i++){
@@ -85,6 +83,7 @@ $(document).ready(function(){
     $.ajax({     
       type:"GET",
       url: petFAPI + $.param(petFAPIParam),
+      dataType:"jsonp",
       success: function(response){
         var newPetInfo = response.petfinder.pet
         var newPetContact = response.petfinder.pet.contact
@@ -118,7 +117,7 @@ $(document).ready(function(){
         }; 
 
         for(i=0; i<petOptions.length; i++){
-          var newPDiv = $("<div>").addClass("col-xs-6 col-md-3");
+          var newPDiv = $("<div>").addClass("col-xs-6");
           var newPDiv2 = $("<div>").addClass("well well-sm");
           var newP = $("<h4>").text(petOptions[i]["$t"]);
           
