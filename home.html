@@ -51,11 +51,14 @@
             <h1>Search for Pets</h1>
             <p>Enter your Zip Code and Choose Options</p>
             <div id="map">
-              <input id="enterZip" class="controls" type="text" placeholder="Enter 5 digit Zip">
+              <label for="enterZip">Zip Code</label>
+              <input id="enterZip" class="enterZip" type="text" placeholder="Enter 5 digit Zip">
             </div>
+            <!-- make this a tooltip or popover -->
             <p>Choose an animal type, then choose a breed</p>
             <div>
-              <select class="newSelect" id="animal">
+              <label for="animalS">Animal</label>
+              <select class="newSelect animalS" id="animal">
                 <option value="" disabled="disabled" selected="selected">Choose an Animal (Optional)</option>
                 <option value="dog">Dog</option>
                 <option value="cat">Cat</option>
@@ -69,34 +72,40 @@
               </select>
             </div>
             
+            <label for="menu">Breed</label>
             <select class="menu col-sm-6 newSelect" id="selectBreed" data-live-search="true" title="Choose Breed">
-              <option value="" selected="selected">Choose a Breed</option>
-              <option>""</option>
               <!--breed list populates here -->
             </select>
 
-            <select id="genderSelect">
-              <option value="" disabled="disabled" selected="selected">Sex</option>
-              <option>M</option>
-              <option>F</option>
-            </select>
+            <div class="row optional">
+              <label for="genderSelect">Sex</label>
+              <select class="optionSelect" id="genderSelect">
+                <option value="" disabled="disabled" selected="selected"></option>
+                <option value="">Any</option>
+                <option>M</option>
+                <option>F</option>
+              </select>
 
-            <select id="ageSelect">
-              <option value="" disabled="disabled" selected="selected">Age</option>
-              <option>Baby</option>
-              <option>Young</option>
-              <option>Adult</option>
-              <option>Senior</option>
-            </select>
+              <label for="ageSelect">Age</label>
+              <select class="optionSelect" id="ageSelect">
+                <option value="" disabled="disabled" selected="selected"></option>
+                <option value="">Any</option>
+                <option>Baby</option>
+                <option>Young</option>
+                <option>Adult</option>
+                <option>Senior</option>
+              </select>
 
-            <select id="sizeSelect">
-              <option value="" disabled="disabled" selected="selected">Size</option>
-              <option>S</option>
-              <option>M</option>
-              <option>L</option>
-              <option>XL</option>
-            </select>
-                      
+              <label for="sizeSelect">Size</label>
+              <select class="optionSelect" id="sizeSelect">
+                <option value="" disabled="disabled" selected="selected"></option>
+                <option value="">Any</option>
+                <option>S</option>
+                <option>M</option>
+                <option>L</option>
+                <option>XL</option>
+              </select>
+            </div>          
             <button class="btn btn-primary breedSearch">Search</button>
             <div class="alert alert-danger" id="noAnimal" role="alert">
               <a href="#" class="alert-link">Please Choose an Animal First</a>

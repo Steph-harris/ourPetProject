@@ -2,7 +2,9 @@ $(document).ready(function(){
   //(gets breed data from breed select box and sets the wiki call as part of the success function)
   $(".breedSearch").on("click", function(e) {
     e.preventDefault();
-    var title = $("#selectBreed").val()
+    var title = $("#selectBreed").val();
+
+    $('#wikiInfo').empty();
 
     $.ajax({
       url: "https://en.wikipedia.org/w/api.php",

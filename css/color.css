@@ -9,11 +9,19 @@ body {
 .navbar>.container-fluid .navbar-brand{
   margin-left: 0;
 }
+.optional{
+  margin-left: 0;
+  margin-right: 0;
+}
 .headline, #breedResult>h3, #breedResult>h2{
   text-align: center;
 }
 #breedResult>h2{
   font-size: 30px;
+}
+.select2 {
+  margin-top: 8px;
+  margin-bottom: 8px;
 }
 section {
   padding-top: 50px;

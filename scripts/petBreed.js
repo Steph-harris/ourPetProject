@@ -4,7 +4,12 @@ $(document).ready(function(){
   $("#noAnimal").hide();
   $("#breedSearchError").hide();
   $(".newSelect").select2({
-    width : '60%'
+    width : '60%',
+    allowClear: true,
+    placeholder: 'Any'
+  });
+  $(".optionSelect").select2({
+    width : '21%',
   });
 
     var animal = $("#animal").val();
@@ -52,15 +57,17 @@ $(document).ready(function(){
       dataType:"jsonp",
       success: function(response){
         var breeds = response.petfinder.breeds.breed;
+        var optionAll = $("<option>").attr("value",[""]).text("Any");
+          $(".menu").append(optionAll);
+
         for(i=0; i<breeds.length; i++){
           var lstItm = breeds[i]['$t'];
           var newDiv = $("<option>").attr("value",[lstItm]).text(lstItm);
-        $(".menu").append(newDiv);
+          $(".menu").append(newDiv);
           //add class item to each and append to .menu
           function newList(lstItm){;
             var newDiv =("<div>").addClass("item")
-              .text(lstItm);
-            $(".menu").append(newDiv);       
+              .text(lstItm);     
           }
         }
         return newDiv;
@@ -102,6 +109,7 @@ $(document).ready(function(){
         var newPetInfo = response.petfinder.pets.pet
         var newPetContact = response.petfinder.pets.pet.contact
         var petOptions = response.petfinder.pets.pet.options.option;
+        //if there are no photos, code breaks and returns nothing
         var petPhoto = response.petfinder.pets.pet.media.photos.photo;
         var yourPet = $("<h2>Meet " + newPetInfo.name["$t"] + ", a size " + newPetInfo.size["$t"]+" " + newPetInfo.age["$t"] +" "+ newPetInfo.sex["$t"] + " from " + newPetContact.city["$t"] +", "+newPetContact.state["$t"] + "</h2>");
         var yourPetP = $("<p>").addClass("col-xs-12 col-md-10 col-md-offset-1").text(newPetInfo.description["$t"]);
