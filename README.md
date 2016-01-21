@@ -2,7 +2,7 @@
 Front-End Group Project
 
 ## General Project Summary:
-We are making a petfinder that displays pets up for adoption close to the users address (or if they prefer, by breed available in any location) with images, (possibly videos), and wikipedia articles about that particular breed as well as care information. Users will also be shown local pet stores and vets.  
+I am making a shelter pet app that displays pets up for adoption close to a users zip code with a map, images (Flickr and from the shelter), description, special needs, wikipedia article about that particular breed (if one is provided) as well as care information. Users will also be shown local pet stores and vets.  
 
 ## Technologies Used 
  - Html5
@@ -11,6 +11,7 @@ We are making a petfinder that displays pets up for adoption close to the users 
  - jQuery 
  - Javascript
  - AJAX
+ - Select2
 
 ## Deployed Link
  - https://showusapet.herokuapp.com/
