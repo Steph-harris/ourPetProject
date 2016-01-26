@@ -110,7 +110,7 @@ $(document).ready(function(){
         var newPetContact = response.petfinder.pets.pet.contact
         var petOptions = response.petfinder.pets.pet.options.option;
         //if there are no photos, code breaks and returns nothing
-        var petPhoto = response.petfinder.pets.pet.media.photos.photo;
+        var newPetPhoto = response.petfinder.pets.pet.media;
         var yourPet = $("<h2>Meet " + newPetInfo.name["$t"] + ", a size " + newPetInfo.size["$t"]+" " + newPetInfo.age["$t"] +" "+ newPetInfo.sex["$t"] + " from " + newPetContact.city["$t"] +", "+newPetContact.state["$t"] + "</h2>");
         var yourPetP = $("<p>").addClass("col-xs-12 col-md-10 col-md-offset-1").text(newPetInfo.description["$t"]);
         var yourPetContact = $("<h3>To adopt " + newPetInfo.name["$t"] + ", please call " + newPetContact.phone["$t"] +"</h3>").addClass("col-xs-12");
@@ -119,16 +119,23 @@ $(document).ready(function(){
         $("#breedResult").prepend(yourPet);
         $("#breedResult").append(yourPetContact);
 
-        for(i=0; i<petPhoto.length; i++){ 
-          if(petPhoto[i]["@size"] === "pn"){            
-            var newPetPic = $("<img>").attr("src", petPhoto[i]["$t"])
-              .addClass("img-responsive");
-            var newPetPicDiv = $("<div>").addClass("col-xs-6 col-md-4");
+        if(jQuery.isEmptyObject(newPetPhoto)){
+          console.log("No Pictures");
+        } else{
+          var petPhoto = newPetPhoto.photos.photo;
 
-            newPetPicDiv.append(newPetPic);
-            $(".photoRow").append(newPetPicDiv);
+          for(i=0; i<petPhoto.length; i++){ 
+            if(petPhoto[i]["@size"] === "pn"){            
+              var newPetPic = $("<img>").attr("src", petPhoto[i]["$t"])
+                .addClass("img-responsive");
+              var newPetPicDiv = $("<div>").addClass("col-xs-6 col-md-4");
+
+              newPetPicDiv.append(newPetPic);
+              $(".photoRow").append(newPetPicDiv);
+            }
           }
         }
+        
         // change col class sizes based on how many images there are
         if($(".img-responsive").length === 1 || $(".img-responsive").length === 2){
           var newPetPicDiv = $("<div>")
