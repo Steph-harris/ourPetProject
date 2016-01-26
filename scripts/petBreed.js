@@ -120,7 +120,6 @@ $(document).ready(function(){
         $("#breedResult").append(yourPetContact);
 
         if(jQuery.isEmptyObject(newPetPhoto)){
-          console.log("No Pictures");
           yourPet.after("<h2>(No Pictures)</h2>")
         } else{
           var petPhoto = newPetPhoto.photos.photo;
