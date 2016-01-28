@@ -176,6 +176,36 @@
     </div>
 
     <div class="row">
+      <div class="example-chat l-demo-container">
+        <header>Bunny Tales</header>
+
+        <div class='example-chat-toolbar'>
+          <label for="nameInput">Pet Name</label>
+          <input type='text' id='nameInput' placeholder='enter pets name...'>
+        </div>
+
+        <div class='example-chat-toolbar2'>
+          <label for="typeInput">Animal</label>
+          <input type='text' id='typeInput' placeholder='enter animal'>
+        </div>
+
+        <div class='example-chat-toolbar3'>
+          <label for="breedChat">Breed</label>
+          <input type='text' id='breedChat' placeholder='enter breed'>
+        </div>
+
+        <div class='example-chat-toolbar4'>
+          <label for="yearsChat">Years Owned</label>
+          <input type='text' id='yearsChat' placeholder='enter # as a digit'>
+        </div>
+
+        <ul id='messages' class="example-chat-messages"></ul>
+
+        <footer>
+          <!-- <input type='text' id='messageInput'  placeholder='Type a message...'>  -->
+          <textarea type='text' minlength="25" id="messageInput" title="Leave a brief, but detailed message" placeholder="Write review here" class="textbox" required="required" style="resize:none" cols="50" rows="5"></textarea>
+        </footer>
+      </div>
       <div class="col-xs-12 col-md-8 col-md-offset-2">
         <div class="col-xs-12" id="breedResult">
           
@@ -281,6 +311,7 @@
     </div>  
   </div> 
   
+  <script src="https://cdn.firebase.com/js/client/2.4.0/firebase.js"></script>
  	<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
   <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.1/js/select2.min.js"></script> 
