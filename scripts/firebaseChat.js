@@ -14,6 +14,7 @@ $(document).ready(function(){
   var messageList = $('#messages');
 
   // LISTEN FOR KEYPRESS EVENT
+  //change this to a submit button
   messageField.keypress(function (e) {
     if (e.keyCode == 13) {
       //FIELD VALUES
@@ -41,8 +42,9 @@ $(document).ready(function(){
 
     //CREATE ELEMENTS MESSAGE & SANITIZE TEXT
     var messageElement = $("<h5>");
-    var nameElement = $("<h3><strong class='example-chat-username'></strong></h3>")
-    nameElement.text(petName +" (" + animalName + ") " + breedName + "; Owned years: " + yearsName);
+    var nameElement = $("<h3><strong class='example-chat-username'></strong></h3>");
+    var yearsElement = $("<h4>Owned years: " + yearsName + "</h4>");
+    nameElement.text(petName +" (" + animalName + ") " + breedName).append(yearsElement);
     messageElement.text('"' + message + '"').prepend(nameElement);
 
     //ADD MESSAGE
