@@ -40,10 +40,10 @@ $(document).ready(function(){
     var message = data.text;
 
     //CREATE ELEMENTS MESSAGE & SANITIZE TEXT
-    var messageElement = $("<li>");
-    var nameElement = $("<strong class='example-chat-username'></strong>")
-    nameElement.text(petName +" (" + animalName + ") " + breedName + ": ");
-    messageElement.text(message).prepend(nameElement);
+    var messageElement = $("<h5>");
+    var nameElement = $("<h3><strong class='example-chat-username'></strong></h3>")
+    nameElement.text(petName +" (" + animalName + ") " + breedName + "; Owned years: " + yearsName);
+    messageElement.text('"' + message + '"').prepend(nameElement);
 
     //ADD MESSAGE
     messageList.append(messageElement)
