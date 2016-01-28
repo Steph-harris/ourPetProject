@@ -113,7 +113,14 @@ $(document).ready(function(){
         var newPetPhoto = response.petfinder.pets.pet.media;
         var yourPet = $("<h2>Meet " + newPetInfo.name["$t"] + ", a size " + newPetInfo.size["$t"]+" " + newPetInfo.age["$t"] +" "+ newPetInfo.sex["$t"] + " from " + newPetContact.city["$t"] +", "+newPetContact.state["$t"] + "</h2>");
         var yourPetP = $("<p>").addClass("col-xs-12 col-md-10 col-md-offset-1").text(newPetInfo.description["$t"]);
+        //if else to determine value of yourPet Contact
+        if(newPetContact.phone["$t"] === undefined){
+          var yourPetContact = $("<h3>To adopt " + newPetInfo.name["$t"] + ", please email " + newPetContact.email["$t"] +"</h3>").addClass("col-xs-12");
+        }else if (newPetContact.phone["$t"] === undefined && newPetContact.email["$t"] === undefined){
+          var yourPetContact = $("<h3>See description for details about adopting " + newPetInfo.name["$t"] + "</h3>").addClass("col-xs-12"); 
+        } else{
         var yourPetContact = $("<h3>To adopt " + newPetInfo.name["$t"] + ", please call " + newPetContact.phone["$t"] +"</h3>").addClass("col-xs-12");
+        }
 
         $("#breedResult").prepend(yourPetP);
         $("#breedResult").prepend(yourPet);
