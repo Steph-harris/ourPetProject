@@ -23,6 +23,10 @@ body {
   background-position: 38% 72%;
   position: relative;
   top: -30px;
+  padding-bottom: 50px;
+}
+.careList {
+  padding-bottom: 10px;
 }
 #headline,.headline, #breedResult>h3, #breedResult>h2{
   text-align: center;
@@ -36,7 +40,7 @@ body {
 }
 .square {
   position: relative;
-  background-color: rgba(240,235,205,0.7);
+  background-color: rgba(240,235,205,0.85);
   border-radius: 15px;
   padding-top: 2%;
   padding-bottom: 2%;
@@ -51,7 +55,8 @@ body {
   margin-top: 8px;
   margin-bottom: 8px;
 }
-section {
+section, #searchBoxes {
+  margin-top: 3%;
   padding-top: 50px;
   overflow: hidden;
 }
@@ -61,14 +66,28 @@ textarea {
 }
 #messages{
   height: 400px;
-  border-radius: 50px;
+  background-color: #ECF0F1;
 }
 .container-fluid {
   padding-left: 10px;
   padding-right: 10px;
 }
+.container{
+  padding-left: 0px;
+  padding-right: 0px;
+}
+#reviews {
+  background-color: #CCC9DC;
+}
+.transLayer{
+  background-color: rgba(255,255,255,0.8);
+}
+
 section>h2, .headerInfo {
   text-align: center;
+}
+.headerInfo {
+  padding-top: 1px;
 }
 #carousel-flickr{
   padding: 0;
