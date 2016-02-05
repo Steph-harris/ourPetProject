@@ -28,79 +28,101 @@
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav navbar-right">
-          <li><a href="#home">Pet Search</a></li>
+          <li><a href="#searchBoxes">Pet Search</a></li>
+          <li><a href="#reviews">Bunny Tales</a></li>
           <li><a href="#whyAdopt">Adoption</a></li>
           <li><a href="#care">Care</a></li> 
-          <li><a href="#about">About Us</a></li>
+          <li><a href="#about">About</a></li>
         </ul>
       </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
   </nav>
 
-  <div class="container">
+  <div class="container-fluid">
   <!-- Page Content goes here -->
-    <div class="row headline">
-      <h1>Welcome to Show Us a Pet <i class="fa fa-paw fa-1x"></i><i class="fa fa-paw fa-2x"></i><i class="fa fa-paw fa-1x"></i></h1>
-      <h4>Your guide to finding the perfect shelter pet for your home</h4>
-      <br />
+    <div class="row backIm" id="headline">
+      <div class="square col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">
+        <h1>Show Us a Pet <i class="fa fa-paw fa-1x"></i><i class="fa fa-paw fa-2x"></i><i class="fa fa-paw fa-1x"></i></h1>
+        <h3>Your guide to finding the perfect shelter pet for your home</h3>
+        <br />
+      </div>    
     </div>
+  </div>
+  <div class="container">  
     <div class="row">       
       <form id="searchBoxes">
-        <div class="col-xs-12 col-sm-6 col-md-5 col-md-offset-1">
+        <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">
           <div class="well well-lg">              
-            <h1>Search By Location</h1>
-            <p>Enter your Zip Code and choose an animal</p>
+            <h1>Search for Pets</h1>
+            <p>Enter your Zip Code and Choose Options</p>
             <div id="map">
-              <input id="enterZip" class="controls" type="text" placeholder="Enter 5 digit Zip">
+              <label for="enterZip">Zip Code</label>
+              <input id="enterZip" class="enterZip" type="text" placeholder="Enter 5 digit Zip">
             </div>
-
+            <!-- make this a tooltip or popover -->
+            <p>Choose an animal type, then choose a breed</p>
             <div>
-              <select class="newSelect" id="animal">
+              <label for="animalS">Animal</label>
+              <select class="newSelect animalS" id="animal">
                 <option value="" disabled="disabled" selected="selected">Choose an Animal (Optional)</option>
                 <option value="dog">Dog</option>
                 <option value="cat">Cat</option>
                 <option value="rabbit">Rabbit</option>
                 <option value="bird">Bird</option>
                 <option value="horse">Horse</option>
-              </select>
-              <button class="btn btn-primary zip">Search</button>
-            </div>
-            <div class="alert alert-danger" id="noZip" role="alert">
-              <a href="#" class="alert-link">Please Enter a Valid 5 Digit Zip Code</a>
-            </div>             
-          </div>
-        </div>
-
-        <div class="col-xs-12 col-sm-6 col-md-5">
-          <div class="well well-lg">              
-            <h1>Search By Breed</h1>
-            <p>Choose an animal type, then choose a breed</p>
-            
-            <div>
-              <select class="newSelect" id="animal2">
-                <option value="" disabled="disabled" selected="selected">Choose an Animal</option>
-                <option value="dog">Dog</option>
-                <option value="cat">Cat</option>
-                <option value="rabbit">Rabbit</option>
-                <option value="bird">Bird</option>
-                <option value="horse">Horse</option>
+                <option value="pig">Pig</option>
+                <option value="barnyard">Farm Animals</option>
+                <option value="smallfurry">Small Animals</option>
+                <option value="reptile">Reptiles</option>
               </select>
             </div>
             
-            <select class="menu col-sm-6 newSelect" id="selectBreed">
-              <option value="" disabled="disabled" selected="selected">Choose a Breed</option>
+            <label for="menu">Breed</label>
+            <select class="menu col-sm-6 newSelect" id="selectBreed" data-live-search="true" title="Choose Breed">
               <!--breed list populates here -->
             </select>
-                      
-            <button class="btn btn-primary breedSearch">Search</button>
+
+            <div class="row optional">
+              <label for="genderSelect">Sex</label>
+              <select class="optionSelect" id="genderSelect">
+                <option value="" disabled="disabled" selected="selected"></option>
+                <option value="">Any</option>
+                <option>M</option>
+                <option>F</option>
+              </select>
+
+              <label for="ageSelect">Age</label>
+              <select class="optionSelect" id="ageSelect">
+                <option value="" disabled="disabled" selected="selected"></option>
+                <option value="">Any</option>
+                <option>Baby</option>
+                <option>Young</option>
+                <option>Adult</option>
+                <option>Senior</option>
+              </select>
+
+              <label for="sizeSelect">Size</label>
+              <select class="optionSelect" id="sizeSelect">
+                <option value="" disabled="disabled" selected="selected"></option>
+                <option value="">Any</option>
+                <option>S</option>
+                <option>M</option>
+                <option>L</option>
+                <option>XL</option>
+              </select>
+              <button class="btn btn-primary breedSearch">Search</button>
+            </div>  
             <div class="alert alert-danger" id="noAnimal" role="alert">
               <a href="#" class="alert-link">Please Choose an Animal First</a>
             </div>
             <div class="alert alert-danger" id="breedSearchError" role="alert">
               <a href="#" class="alert-link">Please Choose an Animal and a Breed</a>
-            </div>
+            </div>             
+            <div class="alert alert-danger" id="noZip" role="alert">
+              <a href="#" class="alert-link">Please Enter a Valid 5 Digit Zip Code</a>
+            </div>             
           </div>
-        </div>               
+        </div>            
       </form>
     </div>
 
@@ -157,7 +179,6 @@
         </div>
       </div>
     </div>
-
     <div class="row">
       <div class="col-xs-12 col-md-8 col-md-offset-2">
         <div class="col-xs-12" id="breedResult">
@@ -173,6 +194,44 @@
         </div> 
       </div>   
     </div>
+    <div class="row">
+      <section id="reviews">
+        <h2><i class="fa fa-paw fa-1x"></i><i class="fa fa-paw fa-2x"></i> Bunny Tales <i class="fa fa-paw fa-2x"></i><i class="fa fa-paw fa-1x"></i></h2>
+        <h4 class="headline col-xs-12 col-md-8 col-md-offset-2">I know nobody needs an excuse to talk more about their pet, but this is a great place to do it! Tell us about your furry pal, the good, the bad, and the Youtube-worthy. Don't forget to mention your pets' breed, age, and gender in case someone wants to replicate your success!</h4>
+        <div class="col-xs-12 col-md-6">
+          <div class="chat-container">
+            <div class='chat-toolbar'>
+              <label for="nameInput">Pet Name</label>
+              <input type='text' id='nameInput' placeholder='enter pets name...'>
+            </div>
+
+            <div class='chat-toolbar'>
+              <label for="typeInput">Animal</label>
+              <input type='text' id='typeInput' placeholder='enter animal'>
+            </div>
+
+            <div class='chat-toolbar'>
+              <label for="breedChat">Breed</label>
+              <input type='text' id='breedChat' placeholder='enter breed'>
+            </div>
+
+            <div class='chat-toolbar'>
+              <label for="yearsChat">Years Owned</label>
+              <input type='text' id='yearsChat' placeholder='enter # as a digit'>
+            </div>
+
+            <footer>
+              <!-- <input type='text' id='messageInput'  placeholder='Type a message...'>  -->
+              <textarea type='text' minlength="25" id="messageInput" title="Review your pet!" placeholder="Write review here..." class="textbox" required="required"></textarea>
+            </footer>
+          </div>
+        </div>
+        <div class="col-xs-12 col-md-6">
+            <div id='messages' class="well well-lg example-chat-messages pre-scrollable"></div>
+        </div>
+      </section>
+    </div>
+    
     <div class="row">
       <section id="whyAdopt">
         <h2><i class="fa fa-paw fa-1x"></i><i class="fa fa-paw fa-2x"></i> Adoption <i class="fa fa-paw fa-2x"></i><i class="fa fa-paw fa-1x"></i></h2>
@@ -217,28 +276,30 @@
         </div>
       </section>
       <section id="care">
-        <div class="headerInfo">
-          <h2><i class="fa fa-paw fa-1x"></i><i class="fa fa-paw fa-2x"></i> Pet Care <i class="fa fa-paw fa-2x"></i><i class="fa fa-paw fa-1x"></i></h2>
-          <h4>All animals are different, but here are some basic tips for owning any kind of pet:</h4>
-        </div>
-        <div class="careList">
-          <ol>
-            <li><h3>Get your pet spayed/neutered</h3>
-            <p>Most animal shelters will have already taken care of this, but make sure your animal will not add to the rampant pet overpopulation problem.</p></li>
-            <li><h3>Get your pet examined regularly</h3>
-            <p>Pets can get sick too.  Make sure to get your pet looked at annually by a vet to make sure that they are in good health.  Regular vet visits will also help to ensure that your pet is up to date with their vaccines.</p></li>
-            <li><h3>Keep your pet active</h3>
-            <p>In addition to checking their overall health, a vet can also tell you if your pet is maintaining a healthy weight.  Many pets are overfed, which can lead to diabetes, arthritis, and even cancer. Make sure your pet has plenty of opportunity to exercise, and double check that you are feeding it the right amount of food.</p></li>
-            <li><h3>Keep your pet mentally stimulated</h3>
-            <p>Pets need to exercise their minds as well as their bodies. Bored pets often become destructive pets. Make sure that doesn't happen by keeping your pet occupied with toys and play time with their humans.</p></li>
-            <li><h3>Microchip your pet</h3>
-            <p>Many pets end up in shelters simply because they got lost one day and couldn't find their way back home. Make sure this doesn't happen to yours by having it microchipped.</p></li>
-          </ol>
+        <div class="transLayer">
+          <div class="headerInfo">
+            <h2><i class="fa fa-paw fa-1x"></i><i class="fa fa-paw fa-2x"></i> Pet Care <i class="fa fa-paw fa-2x"></i><i class="fa fa-paw fa-1x"></i></h2>
+            <h4>All animals are different, but here are some basic tips for owning any kind of pet:</h4>
+          </div>
+          <div class="careList">
+            <ol>
+              <li><h3>Get your pet spayed/neutered</h3>
+              <h4>Most animal shelters will have already taken care of this, but make sure your animal will not add to the rampant pet overpopulation problem.</h4></li>
+              <li><h3>Get your pet examined regularly</h3>
+              <h4>Pets can get sick too.  Make sure to get your pet looked at annually by a vet to make sure that they are in good health.  Regular vet visits will also help to ensure that your pet is up to date with their vaccines.</h4></li>
+              <li><h3>Keep your pet active</h3>
+              <h4>In addition to checking their overall health, a vet can also tell you if your pet is maintaining a healthy weight.  Many pets are overfed, which can lead to diabetes, arthritis, and even cancer. Make sure your pet has plenty of opportunity to exercise, and double check that you are feeding it the right amount of food.</h4></li>
+              <li><h3>Keep your pet mentally stimulated</h3>
+              <h4>Pets need to exercise their minds as well as their bodies. Bored pets often become destructive pets. Make sure that doesn't happen by keeping your pet occupied with toys and play time with their humans.</h4></li>
+              <li><h3>Microchip your pet</h3>
+              <h4>Many pets end up in shelters simply because they got lost one day and couldn't find their way back home. Make sure this doesn't happen to yours by having it microchipped.</h4></li>
+            </ol>
+          </div>
         </div>
       </section>
       <section id="about">
-        <h2><i class="fa fa-paw fa-1x"></i><i class="fa fa-paw fa-2x"></i> About Us <i class="fa fa-paw fa-2x"></i><i class="fa fa-paw fa-1x"></i></h2>
-        <h4 class="col-xs-12 col-md-8 col-md-offset-2">This website was created by a few students from the Rutgers Coding Bootcamp in New Brunswick, NJ.  Initially we just wanted to show off our new skills using API's (Application Program Interfaces), but we hope that we've created a useful service for people to find their next family member!
+        <h2><i class="fa fa-paw fa-1x"></i><i class="fa fa-paw fa-2x"></i> About <i class="fa fa-paw fa-2x"></i><i class="fa fa-paw fa-1x"></i></h2>
+        <h4 class="col-xs-12 col-md-8 col-md-offset-2">This website was created by Stephanie Harris as a front end project for the Rutgers Coding Bootcamp in NJ.  Initially I just wanted to show off my new skills using API's (Application Program Interfaces), but I hope that I've created a useful service to help people find their next family member!
         <br />
         If you still need some encouragement to go get a furry friend, just look at all of these pet images that are currently on Flickr!</h4>
       </section>
@@ -264,12 +325,15 @@
     </div>  
   </div> 
   
+  <script src="https://cdn.firebase.com/js/client/2.4.0/firebase.js"></script>
  	<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
   <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.1/js/select2.min.js"></script> 
   <script type="text/javascript" src="scripts/wikiCall.js"></script>
   <script type="text/javascript" src="scripts/flickrPics.js"></script>
   <script type="text/javascript" src="scripts/petBreed.js"></script>
-  <script type="text/javascript" src="scripts/petZip.js"></script>
+  <script type="text/javascript" src="scripts/firebaseChat.js"></script>
+  <script type="text/javascript" src="scripts/maps.js"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDnV6D49n020wIOftn_s3ZKliCgx-2nDoU&signed_in=true&callback=initMap" async defer></script>
 </body>
 </html>
