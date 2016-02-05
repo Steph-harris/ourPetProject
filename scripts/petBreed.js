@@ -75,6 +75,7 @@ $(document).ready(function(){
     })
   };
 
+  //add zip code, age, sex, options parameters
   function searchByBreed(){   
     var animal = $("#animal").val();
     var breedVal = $("#selectBreed").val();
