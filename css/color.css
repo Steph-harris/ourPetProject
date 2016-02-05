@@ -2,6 +2,12 @@ body {
  position: relative;
  padding-top: 70px;
 }
+h1, h2, h3, h4, h6, .h1, .h2, .h3, .h4, .h6 {
+  font-weight: 600;
+}
+h5, .h5{
+  font-weight: 500;
+}
 .navbar-right{
   margin-right: 5px;
 }
@@ -67,6 +73,9 @@ textarea {
 #messages{
   height: 400px;
   background-color: #ECF0F1;
+}
+#messages>h5, {
+  font-weight: 500;
 }
 .container-fluid {
   padding-left: 10px;
