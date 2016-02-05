@@ -17,6 +17,8 @@ $(document).ready(function(){
   //change this to a submit button
   messageField.keypress(function (e) {
     if (e.keyCode == 13) {
+    //empty input fields on press
+      
       //FIELD VALUES
       var petName = nameField.val();
       var animalName = animalField.val();

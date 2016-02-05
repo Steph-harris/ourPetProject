@@ -19,6 +19,9 @@ body {
 #breedResult>h2{
   font-size: 30px;
 }
+#map {
+  height: 100%;
+}
 .select2, .chat-toolbar {
   margin-top: 8px;
   margin-bottom: 8px;
