@@ -1,7 +1,6 @@
 body {
  position: relative;
  padding-top: 70px;
- border: 15px solid #2C3E50;
 }
 .navbar-right{
   margin-right: 0;
@@ -13,8 +12,34 @@ body {
   margin-left: 0;
   margin-right: 0;
 }
-.headline, #breedResult>h3, #breedResult>h2{
+.backIm{
+  background: url("../images/dogs.png");
+  background-position: 38% 72%;
+  position: relative;
+  top: -30px;
+}
+#care{
+  background: url("../images/horses.jpg");
+  background-position: 38% 72%;
+  position: relative;
+  top: -30px;
+}
+#headline,.headline, #breedResult>h3, #breedResult>h2{
   text-align: center;
+}
+.headline, #headline{
+  padding-left: 0;
+}
+#headline{
+  padding-top: 15%;
+  padding-bottom: 25%;
+}
+.square {
+  position: relative;
+  background-color: rgba(240,235,205,0.7);
+  border-radius: 15px;
+  padding-top: 2%;
+  padding-bottom: 2%;
 }
 #breedResult>h2{
   font-size: 30px;
