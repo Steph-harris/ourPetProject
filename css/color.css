@@ -18,7 +18,7 @@ h5, .h5{
   background-color: #fff;
 }
 .navbar-default{
-  background-color: #127A9E;
+  background-color: #1A242F;
   border-bottom: 1px solid #1A242F;
 }
 .navbar-right{
@@ -27,7 +27,11 @@ h5, .h5{
 .navbar>.container-fluid .navbar-brand{
   margin-left: 0;
 }
-
+.navbar-default .navbar-nav>.active>a,
+.navbar-default .navbar-nav>.active>a:hover,
+.navbar-default .navbar-nav>.active>a:focus {
+  background-color: #E47833;
+}
 .optional{
   margin-left: 0;
   margin-right: 0;
