@@ -17,12 +17,7 @@ h5, .h5{
 .navbar>.container-fluid .navbar-brand{
   margin-left: 0;
 }
-a .navbar-brand:hover{
-  color: #eee;
-}
-a:hover {
-  color: red;
-}
+
 .optional{
   margin-left: 0;
   margin-right: 0;
@@ -46,9 +41,6 @@ a:hover {
 #headline,.headline, #breedResult>h3, #breedResult>h2{
   text-align: center;
 }
-/*.headline, #headline{
-  padding-left: 0;
-}*/
 #headline{
   padding-top: 15%;
   padding-bottom: 25%;
