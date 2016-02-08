@@ -14,6 +14,9 @@ h5, .h5{
 .blue {
   rgb(223, 228, 232);
 }
+.white {
+  background-color: #fff;
+}
 .navbar-default{
   background-color: #127A9E;
   border-bottom: 1px solid #1A242F;
@@ -129,4 +132,29 @@ section>h2, .headerInfo {
 #whyAdopt>.well{
   margin: 5px;
   padding: 10px;
+}
+.navy {
+  background-color: #1a242f;
+}
+footer {
+  padding: 1px;
+  color: #fff;
+}
+footer h4 {
+  padding: 0;
+}
+footer a>i {
+  color: #fff;
+}
+.icons {
+  padding-right: 0;
+  padding-left: 8px;
+}
+.copyright {
+  padding-left: 0;
+  text-align: right;
+}
+.copyright h4 {
+  padding-top: 10px;
+  padding-right: 5px;
 }
