@@ -2,12 +2,22 @@ body {
  position: relative;
  padding-top: 70px;
 }
+h1, h2, h3, h4, h6, .h1, .h2, .h3, .h4, .h6 {
+  font-weight: 600;
+}
+h5, .h5{
+  font-weight: 500;
+}
+.navbar-default{
+  background-color: #127A9E;
+}
 .navbar-right{
-  margin-right: 0;
+  margin-right: 5px;
 }
 .navbar>.container-fluid .navbar-brand{
   margin-left: 0;
 }
+
 .optional{
   margin-left: 0;
   margin-right: 0;
@@ -31,9 +41,6 @@ body {
 #headline,.headline, #breedResult>h3, #breedResult>h2{
   text-align: center;
 }
-.headline, #headline{
-  padding-left: 0;
-}
 #headline{
   padding-top: 15%;
   padding-bottom: 25%;
@@ -55,29 +62,32 @@ body {
   margin-top: 8px;
   margin-bottom: 8px;
 }
-section, #searchBoxes {
+section, search {
   margin-top: 3%;
   padding-top: 50px;
   overflow: hidden;
 }
+
 textarea {
   width: 100%;
   height: 200px;
 }
 #messages{
   height: 400px;
+  color: #1a242f;
   background-color: #ECF0F1;
 }
-.container-fluid {
+#messages>h5, {
+  font-weight: 500;
+}
+.container-fluid, .container, .headerInfo {
   padding-left: 10px;
   padding-right: 10px;
 }
-.container{
-  padding-left: 0px;
-  padding-right: 0px;
-}
-#reviews {
-  background-color: #CCC9DC;
+
+#searchBoxes, #reviews, .well-lg {
+  color: #fff;
+  background-color: #127A9E;
 }
 .transLayer{
   background-color: rgba(255,255,255,0.8);
@@ -106,7 +116,4 @@ section>h2, .headerInfo {
 #whyAdopt>.well{
   margin: 5px;
   padding: 10px;
-}
-.well-lg {
-  background-color: #CCC9DC;
 }
