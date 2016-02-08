@@ -8,6 +8,15 @@ h1, h2, h3, h4, h6, .h1, .h2, .h3, .h4, .h6 {
 h5, .h5{
   font-weight: 500;
 }
+.container-fluid{
+  background-color: rgba(98,121,138,.2);
+}
+.blue {
+  rgb(223, 228, 232);
+}
+.white {
+  background-color: #fff;
+}
 .navbar-default{
   background-color: #127A9E;
   border-bottom: 1px solid #1A242F;
@@ -97,7 +106,7 @@ textarea {
   background-color: #127A9E;
 }
 .transLayer{
-  background-color: rgba(255,255,255,0.8);
+  background-color: rgba(255,255,255,0.75);
 }
 
 section>h2, .headerInfo {
@@ -123,4 +132,32 @@ section>h2, .headerInfo {
 #whyAdopt>.well{
   margin: 5px;
   padding: 10px;
+}
+.navy {
+  background-color: #1a242f;
+}
+footer {
+  padding: 1px;
+  color: #fff;
+}
+footer h4 {
+  padding: 0;
+}
+footer a>i {
+  color: #fff;
+}
+footer a>i:hover {
+  color: wheat;
+}
+.icons {
+  padding-right: 0;
+  padding-left: 8px;
+}
+.copyright {
+  padding-left: 0;
+  text-align: right;
+}
+.copyright h4 {
+  padding-top: 10px;
+  padding-right: 5px;
 }
