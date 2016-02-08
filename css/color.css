@@ -146,6 +146,9 @@ footer h4 {
 footer a>i {
   color: #fff;
 }
+footer a>i:hover {
+  color: wheat;
+}
 .icons {
   padding-right: 0;
   padding-left: 8px;
