@@ -8,6 +8,12 @@ h1, h2, h3, h4, h6, .h1, .h2, .h3, .h4, .h6 {
 h5, .h5{
   font-weight: 500;
 }
+.container-fluid{
+  background-color: rgba(98,121,138,.2);
+}
+.blue {
+  rgb(223, 228, 232);
+}
 .navbar-default{
   background-color: #127A9E;
   border-bottom: 1px solid #1A242F;
@@ -97,7 +103,7 @@ textarea {
   background-color: #127A9E;
 }
 .transLayer{
-  background-color: rgba(255,255,255,0.8);
+  background-color: rgba(255,255,255,0.75);
 }
 
 section>h2, .headerInfo {
