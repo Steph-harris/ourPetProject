@@ -59,6 +59,9 @@ h5, .h5{
 #map {
   height: 100%;
 }
+input, optgroup, select, textarea{
+  color: black;
+}
 .select2, .chat-toolbar {
   margin-top: 8px;
   margin-bottom: 8px;
