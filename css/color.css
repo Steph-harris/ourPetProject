@@ -10,6 +10,7 @@ h5, .h5{
 }
 .navbar-default{
   background-color: #127A9E;
+  border-bottom: 1px solid #1A242F;
 }
 .navbar-right{
   margin-right: 5px;
@@ -67,6 +68,9 @@ section, search {
   padding-top: 50px;
   overflow: hidden;
 }
+#searchBoxes {
+  padding-top: 50px;
+}
 
 textarea {
   width: 100%;
@@ -85,7 +89,7 @@ textarea {
   padding-right: 10px;
 }
 
-#searchBoxes, #reviews, .well-lg {
+#reviews, .well-lg {
   color: #fff;
   background-color: #127A9E;
 }
