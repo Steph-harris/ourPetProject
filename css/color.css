@@ -153,7 +153,7 @@ section>h2, .headerInfo {
   padding: 10px;
 }
 div#amzn-native-ad-0 {
-  max-width: 100%;
+  max-width: 100% !important;
 }
 .navy {
   background-color: #2B4A5F;
