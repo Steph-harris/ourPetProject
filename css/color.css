@@ -18,7 +18,7 @@ h5, .h5{
   background-color: #fff;
 }
 .navbar-default{
-  background-color: #127A9E;
+  background-color: #2B4A5F;
   border-bottom: 1px solid #1A242F;
 }
 .navbar-right{
@@ -27,7 +27,12 @@ h5, .h5{
 .navbar>.container-fluid .navbar-brand{
   margin-left: 0;
 }
-
+.navbar-default .navbar-nav>.active>a,
+.navbar-default .navbar-nav>.active>a:hover,
+.navbar-default .navbar-nav>.active>a:focus {
+  background-color: #ECF0F1;
+  color: #355368;
+}
 .optional{
   margin-left: 0;
   margin-right: 0;
@@ -51,6 +56,9 @@ h5, .h5{
 #headline,.headline, #breedResult>h3, #breedResult>h2{
   text-align: center;
 }
+.headline{
+  padding-bottom: 2%;
+}
 #headline{
   padding-top: 15%;
   padding-bottom: 25%;
@@ -71,6 +79,9 @@ h5, .h5{
 input, optgroup, select, textarea{
   color: black;
 }
+input {
+  margin-bottom: 12px;
+}
 .select2, .chat-toolbar {
   margin-top: 8px;
   margin-bottom: 8px;
@@ -81,15 +92,20 @@ section, search {
   overflow: hidden;
 }
 #searchBoxes {
-  padding-top: 50px;
+  padding-top: 100px;
 }
 
 textarea {
   width: 100%;
-  height: 200px;
+  height: 150px;
+}
+#fireSubmit{
+  margin: 5% 0;
+}
+.pre-scrollable {
+  max-height: 427px;
 }
 #messages{
-  height: 400px;
   color: #1a242f;
   background-color: #ECF0F1;
 }
@@ -127,14 +143,14 @@ section>h2, .headerInfo {
 }
 .well-sm{
   text-align: center;
-  margin: 1px;
+  margin: 20px 0;
 }
 #whyAdopt>.well{
   margin: 5px;
   padding: 10px;
 }
 .navy {
-  background-color: #1a242f;
+  background-color: #2B4A5F;
 }
 footer {
   padding: 1px;
@@ -152,6 +168,9 @@ footer a>i:hover {
 .icons {
   padding-right: 0;
   padding-left: 8px;
+}
+.icons>h4>a>i{
+  padding-left: 15px;
 }
 .copyright {
   padding-left: 0;
