@@ -28,6 +28,10 @@ $(document).ready(function(){
 
       //SAVE DATA TO FIREBASE AND EMPTY FIELD
       messagesRef.push({name:petName, animal:animalName, breed:breedName, years:yearsName, text:message});
+      nameField.val('');
+      animalField.val('');
+      breedField.val('');
+      yearsChat.val('');
       messageField.val('');
     }
   });
