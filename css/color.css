@@ -170,13 +170,14 @@ footer a>i:hover {
   padding-left: 8px;
 }
 .icons>h4>a>i{
-  padding-left: 15px;
+  padding-left: 8px;
 }
 .copyright {
   padding-left: 0;
   text-align: right;
 }
 .copyright h4 {
+  display: inline-block;
   padding-top: 10px;
   padding-right: 5px;
 }
