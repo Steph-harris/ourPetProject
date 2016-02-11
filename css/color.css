@@ -79,6 +79,9 @@ h5, .h5{
 input, optgroup, select, textarea{
   color: black;
 }
+input {
+  margin-bottom: 12px;
+}
 .select2, .chat-toolbar {
   margin-top: 8px;
   margin-bottom: 8px;
@@ -94,13 +97,13 @@ section, search {
 
 textarea {
   width: 100%;
-  height: 200px;
+  height: 150px;
 }
 #fireSubmit{
   margin: 5% 0;
 }
 .pre-scrollable {
-  max-height: 438px;
+  max-height: 427px;
 }
 #messages{
   color: #1a242f;
@@ -140,7 +143,7 @@ section>h2, .headerInfo {
 }
 .well-sm{
   text-align: center;
-  margin: 1px;
+  margin: 20px 0;
 }
 #whyAdopt>.well{
   margin: 5px;
