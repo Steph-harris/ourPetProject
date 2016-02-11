@@ -1,11 +1,12 @@
 $(document).ready(function(){
-  // var messagesRef = new Firebase("https://kgm35vg8fql.firebaseio-demo.com/");
+  $("#blankInputs").hide();
 
   <!-- CHAT JAVACRIPT -->
   // CREATE A REFERENCE TO FIREBASE
   var messagesRef = new Firebase('https://showusapet.firebaseio.com/');
 
   // REGISTER DOM ELEMENTS
+  var submitBtn = $('#fireSubmit');
   var messageField = $('#messageInput');
   var nameField = $('#nameInput');
   var animalField = $('#typeInput');
@@ -13,10 +14,12 @@ $(document).ready(function(){
   var yearsChat = $('#yearsChat');
   var messageList = $('#messages');
 
-  // LISTEN FOR KEYPRESS EVENT
-  //change this to a submit button
-  messageField.keypress(function (e) {
-    if (e.keyCode == 13) {
+  //changed keypress to a submit button
+  submitBtn.click(function (e) {
+    e.preventDefault();
+    debugger;
+    console.log(messageField.val());
+    if (messageField.val() !== '' && nameField.val() !== '' && animalField.val() !== '' && yearsChat.val() !== '' && breedField.val() !== '') {
     //empty input fields on press
       
       //FIELD VALUES
@@ -33,6 +36,8 @@ $(document).ready(function(){
       breedField.val('');
       yearsChat.val('');
       messageField.val('');
+    } else {
+      $("#blankInputs").show().fadeOut(3500);
     }
   });
 

@@ -56,6 +56,9 @@ h5, .h5{
 #headline,.headline, #breedResult>h3, #breedResult>h2{
   text-align: center;
 }
+.headline{
+  padding-bottom: 2%;
+}
 #headline{
   padding-top: 15%;
   padding-bottom: 25%;
@@ -93,8 +96,13 @@ textarea {
   width: 100%;
   height: 200px;
 }
+#fireSubmit{
+  margin: 5% 0;
+}
+.pre-scrollable {
+  max-height: 438px;
+}
 #messages{
-  height: 400px;
   color: #1a242f;
   background-color: #ECF0F1;
 }
@@ -157,6 +165,9 @@ footer a>i:hover {
 .icons {
   padding-right: 0;
   padding-left: 8px;
+}
+.icons>h4>a>i{
+  padding-left: 15px;
 }
 .copyright {
   padding-left: 0;
