@@ -1,5 +1,5 @@
 $(document).ready(function(){
-  var flickrApiUrl = "https://crossorigin.me/https://api.flickr.com/services/rest/?";
+  var flickrApiUrl = "https://api.flickr.com/services/rest/?";
   var flickrApiParams = {
     api_key: "53f3ad616d891ed27a09c64d67ff8ec5",
     text: $("selectBreed").text() || "pets",
@@ -8,7 +8,7 @@ $(document).ready(function(){
     format: "json",
     nojsoncallback: 1,
   }
-     
+
   $.ajax({
     type: "GET",
     url: flickrApiUrl + $.param(flickrApiParams),
@@ -16,8 +16,8 @@ $(document).ready(function(){
       var flickrPetPics = response.photos.photo
       for(i=0; i<flickrPetPics.length; i++){
         var newSlide = makeFlickrCarousel(flickrPetPics[i]);
-        
-        //debugger;       
+
+        //debugger;
         $('.item').first().addClass('active');
         $(".flickrItem").append(newSlide);
       }
@@ -39,7 +39,7 @@ $(document).ready(function(){
   }
 });
 
-//Petfinder info: 
+//Petfinder info:
 //API Key
 // e8128b543b65df38c67f40a9935f53fb
 // API Secret
