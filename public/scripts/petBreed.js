@@ -25,7 +25,7 @@ $(document).ready(function(){
   //on animal selection populate the breed list
   $("#animal").change(function(){
     var animal = $("#animal").val();
-    debugger;
+
     $(".menu").empty();
     $("#select2-selectBreed-container").empty();
 

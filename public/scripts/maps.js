@@ -1,5 +1,8 @@
-// $(document).ready(function(){
+$(document).ready(function(){
+  var dateYr = new Date();
 
+  document.querySelector("#copyBtm").innerHTML = "<h4>© "+dateYr.getFullYear()+"</h4><h4><a href='https://stephs-portfolio.herokuapp.com' target='_blank'> Stephanie Harris</a></h4>";
+  // $("#copyBtm").text();
 //   var startPos;
 //   var geoSuccess = function(position) {
 //     startPos = position;
@@ -17,7 +20,6 @@
 
 //      console.log(lat + "," + long);
 // }
-//   debugger;
 
 //   function initMap() {
 //   var map = new google.maps.Map(document.getElementById('map'), {
@@ -52,6 +54,6 @@
 //                         'Error: The Geolocation service failed.' :
 //                         'Error: Your browser doesn\'t support geolocation.');
 // }
-// });
+});
 
 // key:AIzaSyDTguX07H3EnUy9qDGO4NfK-yto3gpMtMk
