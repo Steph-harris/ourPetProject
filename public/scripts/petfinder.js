@@ -1,15 +1,11 @@
-$(document).ready(function(){
-  let BASE_URL = "https://api.petfinder.com";
-  let CORS_URL = "https://cors-anywhere.herokuapp.com/";
-  let BEARER, BEARER_TIMEOUT, LOCAL_STORAGE;
-  // DON'T COMMIT
-  let API_KEY = "k85D9uKYGfXB5BnmxJ6FlwLJ32848J3YEQZoKnXYDHCmnFRHCj";
-  let SECRET = "b3K9CAIpcFoWCpSIOPU9Y8XOTi9l6ZqaNKTHS6Rv";
+$(document).ready(async function(){
+  const BASE_URL = "https://api.petfinder.com";
+  const CORS_URL = "https://cors-anywhere.herokuapp.com/";
+  let BEARER, BEARER_TIMEOUT;
 
-  init_page();
-  get_bearer();
+  await init_page();
 
-  function init_page(){
+  async function init_page(){
     $("#noZip").hide();
     $("#dscrptnBtn").hide();
     $("#noAnimal").hide();
@@ -32,48 +28,39 @@ $(document).ready(function(){
       console.log("Local storage is not enabled");
       LOCAL_STORAGE = false
     }
+
+    await getBearer();
+    await getAnimalTypes();
   }
 
-  function get_bearer(){
-    let bearer_request = BASE_URL + "/v2/oauth2/token";
+  async function getBearer(){
+    const request = await $.get("/bearer");
+    let response = JSON.parse(request.data);
+    BEARER = response.access_token;
+    BEARER_TIMEOUT = response.expires_in;
 
-    $.post(bearer_request,
-      `grant_type=client_credentials&client_id=${API_KEY}&client_secret=${SECRET}`,
-      function(response){
-        BEARER = response.access_token;
-        BEARER_TIMEOUT = response.expires_in;
-
-        // SET TIMEOUT TO GET NEW BEARER TOKEN WHEN IT EXPIRES
-        // setTimeout(get_bearer, BEARER_TIMEOUT);
-
-        // get animal types
-        getAnimalTypes();
-    });
+    console.log("Bearer token set");
   }
 
-  function getAnimalTypes(){
+  async function getAnimalTypes(){
     let path = '/v2/types';
     let data = createRequestData(path);
+    let animals = await tryPFRequest(data);
+    animals = animals.types;
 
-    $.get(data,
-      function(animals){
-        animals = animals.types
+    // set these as animalS dropdown
+    for(let i=0; i<animals.length; i++){
+      let animal = animals[i];
+      let newDiv = $("<option>")
+        .attr("value", animal.name)
+        .text(animal.name);
+      $(".animalS").append(newDiv);
 
-        // set these as animalS dropdown
-        for(let i=0; i<animals.length; i++){
-          let animal = animals[i];
-          let newDiv = $("<option>")
-            .attr("value", animal.name)
-            .text(animal.name);
-          $(".animalS").append(newDiv);
-
-          // store animal in local storage
-          if (LOCAL_STORAGE){
-            localStorage.setItem(animal.name, JSON.stringify(animal));
-          }
-        }
+      // store animal in local storage
+      if (LOCAL_STORAGE){
+        localStorage.setItem(animal.name, JSON.stringify(animal));
       }
-    );
+    }
   }
 
   $("#selectBreed").on("select2:opening", function(){
@@ -85,13 +72,13 @@ $(document).ready(function(){
   });
 
   //on animal selection populate the breed list
-  $("#animal").change(function(){
+  $("#animal").change(async function(){
     let animal = $("#animal").val();
 
     $(".menu").empty();
     $("#select2-selectBreed-container").empty();
 
-    getBreeds();
+    await getBreeds();
     setAnimalOptions();
   });
 
@@ -110,7 +97,7 @@ $(document).ready(function(){
     let link = $(this).data('link');
     let data = createRequestData(link);
 
-    get_animals(data, null);
+    getAnimals(data, null);
   });
 
   $(document).on("click", ".thumbnail", function(){
@@ -124,29 +111,40 @@ $(document).ready(function(){
     }
   }
 
-  function tryPetFinderRequest(request){
-    // if request returns a 401, get a new Bearer and retry
+  async function tryPFRequest(request, data=null){
+    try {
+      const result = await $.get(request, data);
+      return result;
+    } catch(err){
+      // if request returns a 401, get a new Bearer and retry
+      console.log(err);
+      await getBearer();
+
+      try {
+        const result = await $.get(request, data);
+        return result;
+      } catch(err){
+        throw err;
+      }
+    }
   }
 
-  function getBreeds(){
-    // Check if bearer is expired
+  async function getBreeds(){
     let animal = $("#animal").val();
     let breed_path = `/v2/types/${animal}/breeds`;
     let data = createRequestData(breed_path);
+    let request = await tryPFRequest(data);
+    let response = request.breeds;
+    let breedDefault = '<option value="" disabled="disabled" selected="selected"></option>';
 
-    $.get(data, function(response){
-      response = response.breeds;
-      let breedDefault = '<option value="" disabled="disabled" selected="selected"></option>';
+    $("#selectBreed").append(breedDefault);
 
-      $("#selectBreed").append(breedDefault);
-
-      for(let i=0; i<response.length; i++){
-        let breedsOption = $("<option>")
-          .attr("value", response[i].name)
-          .text(response[i].name);
-        $("#selectBreed").append(breedsOption);
-      }
-    });
+    for(let i=0; i<response.length; i++){
+      let breedsOption = $("<option>")
+        .attr("value", response[i].name)
+        .text(response[i].name);
+      $("#selectBreed").append(breedsOption);
+    }
   }
 
   function setAnimalOptions(){
@@ -201,38 +199,37 @@ $(document).ready(function(){
     $(".photoRow").empty();
     $("#dscrptnBtn").show();
 
-    get_animals(data, params);
+    getAnimals(data, params);
   }
 
-  function get_animals(data, params){
-    $.get(data, params, function(response){
-      let animals = response.animals;
-      let pages = response.pagination;
+  async function getAnimals(data, params){
+    let response = await tryPFRequest(data, params);
+    let animals = response.animals;
+    let pages = response.pagination;
 
-      console.log(animals);
-      console.log(pages);
-      animals.forEach(build_thumbnail);
+    console.log(animals);
+    console.log(pages);
+    animals.forEach(build_thumbnail);
 
-      // destroy current nxtBtn if it exists
-      if ($("#nextBtn")){
-        $("#nextBtn").parent().parent().remove();
-      }
+    // destroy current nxtBtn if it exists
+    if ($("#nextBtn")){
+      $("#nextBtn").parent().parent().remove();
+    }
 
-      //make button with href of next
-      if (pages.current_page != pages.total_pages){
-        let nextLink = pages['_links']['next']['href'];
-        let nextBtn = `<div class="row">
-            <div class="col-xs-4 col-xs-offset-4 col-sm-2 col-sm-offset-5">
-              <button class="btn btn-info" id="nextBtn" type="button" data-link="${nextLink}">
-                More Results
-              </button>
-            </div>
-          </div>`;
+    //make button with href of next
+    if (pages.current_page != pages.total_pages){
+      let nextLink = pages['_links']['next']['href'];
+      let nextBtn = `<div class="row">
+          <div class="col-xs-4 col-xs-offset-4 col-sm-2 col-sm-offset-5">
+            <button class="btn btn-info" id="nextBtn" type="button" data-link="${nextLink}">
+              More Results
+            </button>
+          </div>
+        </div>`;
 
-        //button on click gets the link
-        $("#petResults").append(nextBtn);
-      }
-    });
+      //button on click gets the link
+      $("#petResults").append(nextBtn);
+    }
   }
 
   function build_thumbnail(animal){

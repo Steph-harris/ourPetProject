@@ -1,8 +1,10 @@
 require("dotenv").config();
 
+const async = require("async");
 var bodyParser = require("body-parser");
 var request = require("request");
 var logger = require("morgan");
+
 
 const express = require("express");
 const router = express.Router();
@@ -25,8 +27,26 @@ app.get("/", function(req, res){
 });
 
 app.get("/bearer", function(req, res){
-    let data = get_bearer();
-    res.send(data);
+    let body = `grant_type=client_credentials&client_id=${PF_API_KEY}&client_secret=${PF_SECRET}`;
+
+    request.post({
+          headers: {'content-type' : 'application/x-www-form-urlencoded'},
+          url: PF_BEARER_REQUEST,
+          body: body
+      },
+     function (error, response, body) {
+      if (!error && response.statusCode == 200) {
+          res.status(200).json({
+            status: 'success',
+            data: body,
+          })
+      } else {
+        return res.status(400).json({
+          status: 'error',
+          error: "Error bearer token:" + error,
+        });
+      }
+    });
 })
 
 app.listen(PORT, function(){
@@ -41,8 +61,9 @@ function get_bearer(){
           url: PF_BEARER_REQUEST,
           body: body
       },
-    function (error, response, body) {
+    async function (error, response, body) {
       if (!error && response.statusCode == 200) {
+          console.log("Body:" + body);
         return body;
       } else {
         console.log("Error bearer token:" + error);
