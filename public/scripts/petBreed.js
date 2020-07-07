@@ -1,4 +1,35 @@
 $(document).ready(function(){
+  const BASE_URL = "https://api.petfinder.com/v2";
+  const CORS_URL = "https://cors-anywhere.herokuapp.com/";
+  let BEARER, BEARER_TIMEOUT;
+
+  get_bearer();
+  get_dogs();
+
+  function get_bearer(){
+    $.get("/bearer",
+      function(response){
+        BEARER = response.access_token;
+        BEARER_TIMEOUT = response.expires_in;
+
+        console.log("Bearer set: " + BEARER);
+
+        // SET TIMEOUT TO GET NEW BEARER TOKEN WHEN IT EXPIRES
+        // setTimeout(get_bearer, BEARER_TIMEOUT);
+    });
+  }
+
+  function get_dogs(){
+    var path = '/animals?type=dog&page=2';
+    var data = createRequestData(path);
+
+    $.get(data,
+      function(dogs){
+        console.log(dogs);
+      }
+    );
+  }
+
   $("#noZip").hide();
   $("#dscrptnBtn").hide();
   $("#noAnimal").hide();
@@ -16,19 +47,20 @@ $(document).ready(function(){
 
   $("#selectBreed").on("select2:opening", function(){
     var animal = $("#animal").val();
-    if(animal === null){    
+    if(animal === null){
       $("#noAnimal").show().fadeOut(3500);
       $("#selectBreed").select2().trigger("select2:close");
-    }; 
+    };
   });
-
   //on animal selection populate the breed list
   $("#animal").change(function(){
-    var animal = $("#animal").val(); 
+    var animal = $("#animal").val();
 
-    $(".menu").empty();  
-    
-    breedChecker();   
+    $(".menu").empty();
+    $("#select2-selectBreed-container").empty();
+
+    // breedChecker();
+    getBreeds();
   });
 
   $(".breedSearch").on("click", function(e) {
@@ -42,16 +74,39 @@ $(document).ready(function(){
     searchByBreed();
   });
 
-  function breedChecker(){   
+  function createRequestData(path){
+    return {
+      url: CORS_URL + BASE_URL + path,
+      headers: { Authorization: "Bearer " + BEARER }
+    }
+  }
+
+  function tryPetFinderRequest(request){
+    // if request returns a 401, get a new Bearer and retry
+  }
+
+  function getBreeds(){
+    // Check if bearer is expired
     var animal = $("#animal").val();
-    var petFAPI = "https://api.petfinder.com/breed.list?"
+    var breed_path = `/types/${animal}/breeds`;
+    var data = createRequestData(breed_path);
+
+    $.get(data, function(response){
+      console.log(response);
+    });
+  }
+
+  function breedChecker(){
+    var animal = $("#animal").val();
+    var petFAPI = BASE_URL + `/v2/types/{animal}/breeds`;
+    // https://api.petfinder.com/v2/types/{type}/breeds
     var petFAPIParam = {
       key: "311acd0ca6ee16428a93eb5dafe77634",
       animal: animal,
       format: "json"
     }
 
-    $.ajax({     
+    $.ajax({
       type:"GET",
       url: petFAPI + $.param(petFAPIParam),
       dataType:"jsonp",
@@ -67,7 +122,7 @@ $(document).ready(function(){
           //add class item to each and append to .menu
           function newList(lstItm){;
             var newDiv =("<div>").addClass("item")
-              .text(lstItm);     
+              .text(lstItm);
           }
         }
         return newDiv;
@@ -76,7 +131,7 @@ $(document).ready(function(){
   };
 
   //add zip code, age, sex, options parameters
-  function searchByBreed(){   
+  function searchByBreed(){
     var animal = $("#animal").val();
     var breedVal = $("#selectBreed").val();
     var zipVal = $("#enterZip").val();
@@ -102,11 +157,14 @@ $(document).ready(function(){
     $(".photoRow").empty();
     $("#dscrptnBtn").show();
 
-    $.ajax({     
+    $.ajax({
       type:"GET",
       url: petFAPI + $.param(petFAPIParam),
       dataType:"jsonp",
       success: function(response){
+        console.log(response.petfinder.pets)
+
+        console.log(response.petfinder.pets)
         var newPetInfo = response.petfinder.pets.pet
         var newPetContact = response.petfinder.pets.pet.contact
         var petOptions = response.petfinder.pets.pet.options.option;
@@ -118,7 +176,7 @@ $(document).ready(function(){
         if(newPetContact.phone["$t"] === undefined){
           var yourPetContact = $("<h3>To adopt " + newPetInfo.name["$t"] + ", please email " + newPetContact.email["$t"] +"</h3>").addClass("col-xs-12");
         }else if (newPetContact.phone["$t"] === undefined && newPetContact.email["$t"] === undefined){
-          var yourPetContact = $("<h3>See description for details about adopting " + newPetInfo.name["$t"] + "</h3>").addClass("col-xs-12"); 
+          var yourPetContact = $("<h3>See description for details about adopting " + newPetInfo.name["$t"] + "</h3>").addClass("col-xs-12");
         } else{
         var yourPetContact = $("<h3>To adopt " + newPetInfo.name["$t"] + ", please call " + newPetContact.phone["$t"] +"</h3>").addClass("col-xs-12");
         }
@@ -132,8 +190,8 @@ $(document).ready(function(){
         } else{
           var petPhoto = newPetPhoto.photos.photo;
 
-          for(i=0; i<petPhoto.length; i++){ 
-            if(petPhoto[i]["@size"] === "pn"){            
+          for(i=0; i<petPhoto.length; i++){
+            if(petPhoto[i]["@size"] === "pn"){
               var newPetPic = $("<img>").attr("src", petPhoto[i]["$t"])
                 .addClass("img-responsive");
               var newPetPicDiv = $("<div>").addClass("col-xs-6 col-md-4");
@@ -143,7 +201,7 @@ $(document).ready(function(){
             }
           }
         }
-        
+
         // change col class sizes based on how many images there are
         if($(".img-responsive").length === 1 || $(".img-responsive").length === 2){
           var newPetPicDiv = $("<div>")
@@ -151,13 +209,13 @@ $(document).ready(function(){
 
           newPetPicDiv.append(newPetPic);
           $(".photoRow").empty().append(newPetPicDiv);
-        }; 
+        };
 
         for(i=0; i<petOptions.length; i++){
           var newPDiv = $("<div>").addClass("col-xs-6");
           var newPDiv2 = $("<div>").addClass("well well-sm");
           var newP = $("<h4>").text(petOptions[i]["$t"]);
-          
+
           newPDiv2.append(newP);
           newPDiv.append(newPDiv2);
           $("#breedResult").append(newPDiv);
@@ -167,4 +225,4 @@ $(document).ready(function(){
   };
 });
 
-    
+
