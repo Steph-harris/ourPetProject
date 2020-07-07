@@ -1,4 +1,35 @@
 $(document).ready(function(){
+  const BASE_URL = "https://api.petfinder.com/v2";
+  const CORS_URL = "https://cors-anywhere.herokuapp.com/";
+  let BEARER, BEARER_TIMEOUT;
+
+  get_bearer();
+  get_dogs();
+
+  function get_bearer(){
+    $.get("/bearer",
+      function(response){
+        BEARER = response.access_token;
+        BEARER_TIMEOUT = response.expires_in;
+
+        console.log("Bearer set: " + BEARER);
+
+        // SET TIMEOUT TO GET NEW BEARER TOKEN WHEN IT EXPIRES
+        // setTimeout(get_bearer, BEARER_TIMEOUT);
+    });
+  }
+
+  function get_dogs(){
+    var path = '/animals?type=dog&page=2';
+    var data = createRequestData(path);
+
+    $.get(data,
+      function(dogs){
+        console.log(dogs);
+      }
+    );
+  }
+
   $("#noZip").hide();
   $("#dscrptnBtn").hide();
   $("#noAnimal").hide();
@@ -21,7 +52,6 @@ $(document).ready(function(){
       $("#selectBreed").select2().trigger("select2:close");
     };
   });
-
   //on animal selection populate the breed list
   $("#animal").change(function(){
     var animal = $("#animal").val();
@@ -29,7 +59,8 @@ $(document).ready(function(){
     $(".menu").empty();
     $("#select2-selectBreed-container").empty();
 
-    breedChecker();
+    // breedChecker();
+    getBreeds();
   });
 
   $(".breedSearch").on("click", function(e) {
@@ -43,9 +74,32 @@ $(document).ready(function(){
     searchByBreed();
   });
 
+  function createRequestData(path){
+    return {
+      url: CORS_URL + BASE_URL + path,
+      headers: { Authorization: "Bearer " + BEARER }
+    }
+  }
+
+  function tryPetFinderRequest(request){
+    // if request returns a 401, get a new Bearer and retry
+  }
+
+  function getBreeds(){
+    // Check if bearer is expired
+    var animal = $("#animal").val();
+    var breed_path = `/types/${animal}/breeds`;
+    var data = createRequestData(breed_path);
+
+    $.get(data, function(response){
+      console.log(response);
+    });
+  }
+
   function breedChecker(){
     var animal = $("#animal").val();
-    var petFAPI = "https://api.petfinder.com/breed.list?"
+    var petFAPI = BASE_URL + `/v2/types/{animal}/breeds`;
+    // https://api.petfinder.com/v2/types/{type}/breeds
     var petFAPIParam = {
       key: "311acd0ca6ee16428a93eb5dafe77634",
       animal: animal,
@@ -108,6 +162,9 @@ $(document).ready(function(){
       url: petFAPI + $.param(petFAPIParam),
       dataType:"jsonp",
       success: function(response){
+        console.log(response.petfinder.pets)
+
+        console.log(response.petfinder.pets)
         var newPetInfo = response.petfinder.pets.pet
         var newPetContact = response.petfinder.pets.pet.contact
         var petOptions = response.petfinder.pets.pet.options.option;

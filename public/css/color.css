@@ -33,6 +33,9 @@ h5, .h5{
   background-color: #ECF0F1;
   color: #355368;
 }
+input[type="checkbox"]{
+  margin-left: 10px;
+}
 .optional{
   margin-left: 0;
   margin-right: 0;
@@ -42,6 +45,19 @@ h5, .h5{
   background-position: 38% 72%;
   position: relative;
   top: -30px;
+}
+#resultContainer {
+    margin-top: 20px;
+}
+.thumbnail {
+  height: 300px;
+  /*width: 200px;*/
+  text-align: center;
+  overflow-y: scroll;
+}
+.thumbpic{
+  width: 100%;
+  height: auto;
 }
 #care{
   background: url("../images/horses.jpg");
@@ -72,6 +88,14 @@ h5, .h5{
 }
 .square h1 {
   display: inline-block;
+}
+#goodCheckboxes{
+  margin-top: 10px;
+}
+.breedSearch{
+  margin-top: 20px;
+  font-weight: bold;
+  font-size: 2rem;
 }
 #breedResult>h2{
   font-size: 30px;
