@@ -117,7 +117,7 @@ $(document).ready(function(){
     if (pages.current_page != pages.total_pages){
       let nextLink = pages['_links']['next']['href'];
       let nextBtn = `<div class="row">
-          <div class="col-xs-4 col-xs-offset-4 col-sm-2 col-sm-offset-5">
+          <div class="col-xs-4 col-xs-offset-4 col-sm-2 col-sm-offset-5" style="clear: both;">
             <button class="btn btn-info" id="nextBtn" type="button" data-link="${nextLink}">
               More Results
             </button>
@@ -125,7 +125,7 @@ $(document).ready(function(){
         </div>`;
 
       //button on click gets the link
-      $("#petResults").append(nextBtn);
+      $("#petResults").after(nextBtn);
     }
   }
 
