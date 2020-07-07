@@ -1,11 +1,11 @@
-$(document).ready(async function(){
+$(document).ready(function(){
   const BASE_URL = "https://api.petfinder.com";
   const CORS_URL = "https://cors-anywhere.herokuapp.com/";
   let BEARER, BEARER_TIMEOUT;
 
-  await init_page();
+  initPage();
 
-  async function init_page(){
+  async function initPage(){
     $("#noZip").hide();
     $("#dscrptnBtn").hide();
     $("#noAnimal").hide();
@@ -42,6 +42,24 @@ $(document).ready(async function(){
     console.log("Bearer token set");
   }
 
+  async function tryPFRequest(request, data=null){
+    try {
+      const result = await $.get(request, data);
+      return result;
+    } catch(err){
+      // if request returns a 401, get a new Bearer and retry
+      console.log(err);
+      await getBearer();
+
+      try {
+        const result = await $.get(request, data);
+        return result;
+      } catch(err){
+        throw err;
+      }
+    }
+  }
+
   async function getAnimalTypes(){
     let path = '/v2/types';
     let data = createRequestData(path);
@@ -59,72 +77,6 @@ $(document).ready(async function(){
       // store animal in local storage
       if (LOCAL_STORAGE){
         localStorage.setItem(animal.name, JSON.stringify(animal));
-      }
-    }
-  }
-
-  $("#selectBreed").on("select2:opening", function(){
-    let animal = $("#animal").val();
-    if(animal === null){
-      $("#noAnimal").show().fadeOut(3500);
-      $("#selectBreed").select2().trigger("select2:close");
-    };
-  });
-
-  //on animal selection populate the breed list
-  $("#animal").change(async function(){
-    let animal = $("#animal").val();
-
-    $(".menu").empty();
-    $("#select2-selectBreed-container").empty();
-
-    await getBreeds();
-    setAnimalOptions();
-  });
-
-  $(document).on("click", ".breedSearch", function(e){
-    e.preventDefault();
-    let zipCode = $("#enterZip").val();
-
-    if (zipCode === "" || zipCode.length !== 5){
-      $("#noZip").show().fadeOut(3500);
-      return;
-    }
-    searchByBreed();
-  });
-
-  $(document).on("click", "#nextBtn", function(){
-    let link = $(this).data('link');
-    let data = createRequestData(link);
-
-    getAnimals(data, null);
-  });
-
-  $(document).on("click", ".thumbnail", function(){
-    $(this).children('div').toggle();
-  });
-
-  function createRequestData(path){
-    return {
-      url: CORS_URL + BASE_URL + path,
-      headers: { Authorization: "Bearer " + BEARER }
-    }
-  }
-
-  async function tryPFRequest(request, data=null){
-    try {
-      const result = await $.get(request, data);
-      return result;
-    } catch(err){
-      // if request returns a 401, get a new Bearer and retry
-      console.log(err);
-      await getBearer();
-
-      try {
-        const result = await $.get(request, data);
-        return result;
-      } catch(err){
-        throw err;
       }
     }
   }
@@ -147,61 +99,6 @@ $(document).ready(async function(){
     }
   }
 
-  function setAnimalOptions(){
-    let animal_val = $("#animal").val();
-
-    if(LOCAL_STORAGE){
-      var animal = JSON.parse(localStorage.getItem(animal_val));
-    } else {
-      // go get the animal
-      var animal = JSON.parse(localStorage.getItem(animal_val));
-    }
-
-    let coats = animal.coats;
-    let colors = animal.colors;
-    let genders = animal.genders;
-    let sexDefault = '<option value="" disabled="disabled" selected="selected"></option>';
-    $("#genderSelect").empty();
-    $("#genderSelect").append(sexDefault);
-
-    for(let i=0; i<genders.length; i++){
-      let genderOption = $("<option>")
-        .attr("value", genders[i])
-        .text(genders[i]);
-      $("#genderSelect").append(genderOption);
-    }
-  }
-
-  function setSearchParams(){
-    return {
-      animal: $("#animal").val(),
-      breed: $("#selectBreed").val(),
-      sex: $("#genderSelect").val(),
-      size: $("#sizeSelect").val(),
-      age: $("#ageSelect").val(),
-      location: $("#enterZip").val(),
-      good_with_children: $("input[name='goodchildren']").prop('checked'),
-      good_with_dogs: $("input[name='gooddogs']").prop('checked'),
-      good_with_cats: $("input[name='goodcats']").prop('checked'),
-      output: "full",
-      format: "json",
-      sort: $("#sortBy").val(),
-      status: "adoptable"
-    }
-  }
-
-  function searchByBreed(){
-    let animal_path = `/v2/animals`;
-    let data = createRequestData(animal_path);
-    let params = setSearchParams();
-
-    $("#petResults").empty();
-    $(".photoRow").empty();
-    $("#dscrptnBtn").show();
-
-    getAnimals(data, params);
-  }
-
   async function getAnimals(data, params){
     let response = await tryPFRequest(data, params);
     let animals = response.animals;
@@ -209,7 +106,7 @@ $(document).ready(async function(){
 
     console.log(animals);
     console.log(pages);
-    animals.forEach(build_thumbnail);
+    animals.forEach(buildThumbnail);
 
     // destroy current nxtBtn if it exists
     if ($("#nextBtn")){
@@ -232,7 +129,73 @@ $(document).ready(async function(){
     }
   }
 
-  function build_thumbnail(animal){
+  function createRequestData(path){
+    return {
+      url: CORS_URL + BASE_URL + path,
+      headers: { Authorization: "Bearer " + BEARER }
+    }
+  }
+
+  function setAnimalOptions(){
+    let animal_val = $("#animal").val();
+
+    if(LOCAL_STORAGE){
+      var animal = JSON.parse(localStorage.getItem(animal_val));
+    } else {
+      // go get the animal
+      var animal = JSON.parse(localStorage.getItem(animal_val));
+    }
+
+    let coats = animal.coats;
+    let colors = animal.colors;
+    let genders = animal.genders;
+    let sexDefault = '<option value="" disabled="disabled" selected="selected"></option>';
+    $("#genderSelect").empty();
+    $("#genderSelect").append(sexDefault);
+
+    for(let i=0; i<genders.length; i++){
+      let genderOption = $("<option>")
+        .attr("value", genders[i].toLowerCase())
+        .text(genders[i]);
+      $("#genderSelect").append(genderOption);
+    }
+  }
+
+  function setSearchParams(){
+    return {
+      type: $("#animal").val(),
+      breed: $("#selectBreed").val(),
+      gender: $("#genderSelect").val(),
+      size: $("#sizeSelect").val(),
+      age: $("#ageSelect").val(),
+      location: $("#enterZip").val(),
+      good_with_children: $("input[name='goodchildren']").prop('checked'),
+      good_with_dogs: $("input[name='gooddogs']").prop('checked'),
+      good_with_cats: $("input[name='goodcats']").prop('checked'),
+      output: "full",
+      format: "json",
+      sort: $("#sortBy").val(),
+      status: "adoptable"
+    }
+  }
+
+  function searchByBreed(){
+    let animal_path = `/v2/animals`;
+    let data = createRequestData(animal_path);
+    let params = setSearchParams();
+
+    // Remove null key->value pairs from param list
+    Object.keys(params).forEach((key) =>
+        (params[key] == null) && delete params[key]);
+
+    $("#petResults").empty();
+    $(".photoRow").empty();
+    $("#dscrptnBtn").show();
+
+    getAnimals(data, params);
+  }
+
+  function buildThumbnail(animal){
     let photos = [];
     let published = new Date(animal.status_changed_at);
     let pf_link = `<a href = '${animal.url}' target='_blank'">See full description</a>`;
@@ -286,4 +249,46 @@ $(document).ready(async function(){
       }
     };
   }
+
+  // SETUP EVENT LISTENERS
+  $("#selectBreed").on("select2:opening", function(){
+    let animal = $("#animal").val();
+    if(animal === null){
+      $("#noAnimal").show().fadeOut(3500);
+      $("#selectBreed").select2().trigger("select2:close");
+    };
+  });
+
+  //on animal selection populate the breed list
+  $("#animal").change(async function(){
+    let animal = $("#animal").val();
+
+    $(".menu").empty();
+    $("#select2-selectBreed-container").empty();
+
+    await getBreeds();
+    setAnimalOptions();
+  });
+
+  $(document).on("click", ".breedSearch", function(e){
+    e.preventDefault();
+    let zipCode = $("#enterZip").val();
+
+    if (zipCode === "" || zipCode.length !== 5){
+      $("#noZip").show().fadeOut(3500);
+      return;
+    }
+    searchByBreed();
+  });
+
+  $(document).on("click", "#nextBtn", async function(){
+    let link = $(this).data('link');
+    let data = createRequestData(link);
+
+    await getAnimals(data, null);
+  });
+
+  $(document).on("click", ".thumbnail", function(){
+    $(this).children('div').toggle();
+  });
 });
